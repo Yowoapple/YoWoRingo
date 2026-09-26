@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "photos": "node scripts/photos.mjs",
     "portrait": "node scripts/portrait.mjs",
-    "fonts": "node scripts/fonts.mjs"
+    "fonts": "node scripts/fonts.mjs",
+    "works": "node scripts/works.mjs"
   },
   "devDependencies": {
     "opencc-js": "^1.4.2",

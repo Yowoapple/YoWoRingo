@@ -36,6 +36,23 @@
   color: var(--mute);
 }
 
+.gate__question {
+  font-size: clamp(1.5rem, 3.4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(10px);
+  filter: blur(8px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out), filter 0.8s var(--ease-out);
+}
+
+.gate.is-ready .gate__question {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
 .gate__actions {
   display: flex;
   flex-wrap: wrap;

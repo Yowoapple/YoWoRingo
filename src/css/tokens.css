@@ -6,6 +6,7 @@
   --mute: #85847f;
   --line: rgb(239 238 234 / 0.14);
   --signal: #2b3bff;
+  --pink: #ff8fc2;
   --signal-soft: oklch(from var(--signal) calc(l + 0.22) calc(c * 0.55) h);
   --signal-deep: oklch(from var(--signal) calc(l - 0.18) c h);
 
@@ -43,4 +44,8 @@
   --z-island: 200;
   --z-overlay: 500;
   --z-loader: 1000;
+}
+
+:root[data-mode='kuromi'] {
+  --signal: #ff4fa3;
 }

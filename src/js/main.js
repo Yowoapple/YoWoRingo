@@ -18,9 +18,7 @@ if (lenis) {
 }
 
 const soundBtn = document.querySelector('[data-sound]');
-soundBtn?.addEventListener('click', () => {
-  const on = audio.toggle();
-  soundBtn.setAttribute('aria-pressed', String(on));
-});
+soundBtn?.addEventListener('click', () => audio.toggle());
+audio.onChange(on => soundBtn?.setAttribute('aria-pressed', String(on)));
 
 initLang();

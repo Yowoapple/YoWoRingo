@@ -39,7 +39,7 @@ export function initGate(ready) {
       else audio.disable();
       gate.classList.add('is-leaving');
       setTimeout(() => gate.remove(), 900);
-      resolve();
+      resolve(btn.dataset.enter === 'sound');
     });
   });
 }

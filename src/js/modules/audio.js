@@ -1,8 +1,11 @@
 let ctx = null;
 let master = null;
-let ambient = null;
+let sfxBus = null;
+let musicBus = null;
 let enabled = false;
+let sfxOn = true;
 let lastKnock = 0;
+const listeners = new Set();
 
 function ensure() {
   if (ctx) return ctx;
@@ -12,95 +15,103 @@ function ensure() {
   master = ctx.createGain();
   master.gain.value = 0;
   master.connect(ctx.destination);
+  sfxBus = ctx.createGain();
+  sfxBus.connect(master);
+  musicBus = ctx.createGain();
+  musicBus.gain.value = 0.7;
+  musicBus.connect(master);
   return ctx;
 }
 
-function startAmbient() {
-  if (ambient || !ctx) return;
-  const out = ctx.createGain();
-  out.gain.value = 0.05;
-  const filter = ctx.createBiquadFilter();
-  filter.type = 'lowpass';
-  filter.frequency.value = 520;
-  filter.Q.value = 0.4;
-  const lfo = ctx.createOscillator();
-  const lfoGain = ctx.createGain();
-  lfo.frequency.value = 0.05;
-  lfoGain.gain.value = 240;
-  lfo.connect(lfoGain).connect(filter.frequency);
-  const voices = [55, 82.41, 110.3, 164.8].map((f, i) => {
-    const o = ctx.createOscillator();
-    o.type = i % 2 ? 'triangle' : 'sine';
-    o.frequency.value = f;
-    o.detune.value = (i - 1.5) * 6;
-    const g = ctx.createGain();
-    g.gain.value = 0.22 / (i + 1);
-    o.connect(g).connect(filter);
-    o.start();
-    return o;
-  });
-  filter.connect(out).connect(master);
-  lfo.start();
-  ambient = { voices, lfo, out };
+const emit = () => listeners.forEach(fn => fn(enabled));
+
+function voice(type, freq, level, attack, decay, when, bus = sfxBus) {
+  const o = ctx.createOscillator();
+  const g = ctx.createGain();
+  o.type = type;
+  o.frequency.setValueAtTime(freq, when);
+  g.gain.setValueAtTime(0.0001, when);
+  g.gain.exponentialRampToValueAtTime(level, when + attack);
+  g.gain.exponentialRampToValueAtTime(0.0001, when + attack + decay);
+  o.connect(g).connect(bus);
+  o.start(when);
+  o.stop(when + attack + decay + 0.05);
+  return o;
 }
 
 export const audio = {
   get enabled() {
     return enabled;
   },
+  get context() {
+    return ensure();
+  },
+  get musicBus() {
+    ensure();
+    return musicBus;
+  },
+  onChange(fn) {
+    listeners.add(fn);
+    return () => listeners.delete(fn);
+  },
   async enable() {
     if (!ensure()) return;
     if (ctx.state === 'suspended') await ctx.resume();
     enabled = true;
-    startAmbient();
     master.gain.cancelScheduledValues(ctx.currentTime);
-    master.gain.setTargetAtTime(0.9, ctx.currentTime, 0.4);
+    master.gain.setTargetAtTime(0.9, ctx.currentTime, 0.3);
     document.documentElement.dataset.sound = 'on';
+    emit();
   },
   disable() {
     enabled = false;
     document.documentElement.dataset.sound = 'off';
-    if (!ctx) return;
-    master.gain.cancelScheduledValues(ctx.currentTime);
-    master.gain.setTargetAtTime(0, ctx.currentTime, 0.15);
+    if (ctx) {
+      master.gain.cancelScheduledValues(ctx.currentTime);
+      master.gain.setTargetAtTime(0, ctx.currentTime, 0.12);
+    }
+    emit();
   },
   toggle() {
-    return enabled ? (this.disable(), false) : (this.enable(), true);
+    const next = !enabled;
+    if (next) this.enable();
+    else this.disable();
+    return next;
   },
-  tick(freq = 1800, level = 0.08) {
-    if (!enabled || !ctx) return;
+  setMusicVolume(v) {
+    ensure();
+    musicBus.gain.setTargetAtTime(v, ctx.currentTime, 0.05);
+  },
+  setSfx(on) {
+    sfxOn = on;
+  },
+  get sfx() {
+    return sfxOn;
+  },
+  tick(freq = 1800, level = 0.06) {
+    if (!enabled || !sfxOn || !ctx) return;
     const t = ctx.currentTime;
-    const o = ctx.createOscillator();
-    const g = ctx.createGain();
-    o.type = 'square';
-    o.frequency.setValueAtTime(freq, t);
+    const o = voice('square', freq, level, 0.002, 0.045, t);
     o.frequency.exponentialRampToValueAtTime(freq * 0.5, t + 0.04);
-    g.gain.setValueAtTime(level, t);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
-    o.connect(g).connect(master);
-    o.start(t);
-    o.stop(t + 0.06);
+  },
+  chime() {
+    if (!enabled || !sfxOn || !ctx) return;
+    const t = ctx.currentTime;
+    voice('sine', 1318.5, 0.08, 0.004, 0.35, t);
+    voice('sine', 1975.5, 0.06, 0.004, 0.5, t + 0.07);
   },
   knock(intensity = 0.5) {
-    if (!enabled || !ctx) return;
+    if (!enabled || !sfxOn || !ctx) return;
     const now = performance.now();
     if (now - lastKnock < 28) return;
     lastKnock = now;
     const t = ctx.currentTime;
-    const o = ctx.createOscillator();
-    const g = ctx.createGain();
-    o.type = 'sine';
     const f = 90 + intensity * 140 + Math.random() * 30;
-    o.frequency.setValueAtTime(f * 1.8, t);
+    const o = voice('sine', f * 1.8, 0.25 * intensity, 0.002, 0.18, t);
     o.frequency.exponentialRampToValueAtTime(f, t + 0.03);
-    g.gain.setValueAtTime(0.25 * intensity, t);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
-    o.connect(g).connect(master);
-    o.start(t);
-    o.stop(t + 0.2);
   },
   sweep(up = true) {
-    if (!enabled || !ctx) return;
+    if (!enabled || !sfxOn || !ctx) return;
     const t = ctx.currentTime;
     const len = 0.6;
     const buffer = ctx.createBuffer(1, ctx.sampleRate * len, ctx.sampleRate);
@@ -115,9 +126,9 @@ export const audio = {
     bp.frequency.exponentialRampToValueAtTime(up ? 2400 : 300, t + len);
     const g = ctx.createGain();
     g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(0.12, t + len * 0.4);
+    g.gain.exponentialRampToValueAtTime(0.1, t + len * 0.4);
     g.gain.exponentialRampToValueAtTime(0.0001, t + len);
-    src.connect(bp).connect(g).connect(master);
+    src.connect(bp).connect(g).connect(sfxBus);
     src.start(t);
   }
 };

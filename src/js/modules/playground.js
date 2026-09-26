@@ -5,7 +5,7 @@ import { clamp } from '../utils/device.js';
 const { Engine, Bodies, Body, Composite, Constraint, Events } = Matter;
 
 export function createPlayground(stage, options = {}) {
-  const items = [...stage.querySelectorAll('[data-body]')];
+  const items = [...stage.querySelectorAll('[data-body]')].filter(el => getComputedStyle(el).display !== 'none');
   const engine = Engine.create({ enableSleeping: true });
   engine.gravity.y = 1;
   engine.positionIterations = 8;

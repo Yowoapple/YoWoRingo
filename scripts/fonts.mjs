@@ -27,8 +27,7 @@ for (const f of files) {
     if ((c >= 0x3000 && c <= 0x9fff) || (c >= 0xf900 && c <= 0xfaff) || (c >= 0xff00 && c <= 0xffef)) chars.add(ch);
   }
 }
-const ascii = Array.from({ length: 95 }, (_, i) => String.fromCharCode(32 + i)).join('');
-const text = ascii + '，。、：；！？「」『』（）《》〈〉—…·' + [...chars].join('');
+const text = '，。、：；！？「」『』（）《》〈〉…' + [...chars].join('');
 
 mkdirSync(outDir, { recursive: true });
 for (const [w, name] of Object.entries(weights)) {

@@ -96,6 +96,12 @@
   background: var(--signal);
 }
 
+.pg-tag--pink {
+  border-color: var(--pink);
+  background: var(--pink);
+  color: var(--ink);
+}
+
 .pg-tag.is-grabbed {
   background: var(--paper);
   color: var(--ink);
@@ -165,5 +171,9 @@
 
   .pg-card {
     width: 168px;
+  }
+
+  .pg-tag--wide {
+    display: none;
   }
 }

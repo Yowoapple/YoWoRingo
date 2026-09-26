@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0b0c">
-  <meta name="description" content="YoWoRingo — founder of TWERG, game developer and street photographer from New Taipei, Taiwan.">
-  <title>YoWoRingo</title>
+  <meta name="description" content="YoWoRingo (%VITE_LEGAL_NAME%) — founder of TWERG, game developer and street photographer from New Taipei, Taiwan.">
+  <meta name="author" content="%VITE_LEGAL_NAME%">
+  <title>YoWoRingo — Got any Ringo?</title>
   <link rel="preload" href="/img/portrait-sample.png" as="image">
   <script type="module" src="/src/js/pages/home.js"></script>
 </head>
@@ -14,6 +15,7 @@
     <div class="gate__inner">
       <p class="label gate__kicker">YoWoRingo / Portfolio 2026</p>
       <p class="gate__count" aria-live="polite"><span data-gate-count>000</span></p>
+      <p class="gate__question" data-gate-question>Got any Ringo?</p>
       <div class="gate__actions" data-gate-actions hidden>
         <button class="btn btn--solid" type="button" data-enter="sound">Enter with sound</button>
         <button class="btn btn--ghost" type="button" data-enter="silent">Enter in silence</button>
@@ -35,18 +37,44 @@
         <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         <span class="nav__btn-label">Sound</span>
       </button>
+      <button class="nav__btn" type="button" data-palette-open aria-label="Open menu">
+        <span class="nav__btn-label">Menu</span><kbd class="nav__kbd">Ctrl K</kbd>
+      </button>
     </div>
   </header>
 
-  <div class="island" data-island-el role="status">
-    <span class="island__px" aria-hidden="true"></span>
-    <span class="island__label" data-island-label>01 — Portrait</span>
+  <div class="island" data-island-el>
+    <button class="island__pill" type="button" data-island-toggle aria-expanded="false" aria-label="Section and music player">
+      <span class="island__px" aria-hidden="true"></span>
+      <span class="island__label" data-island-label>01 — Portrait</span>
+      <span class="island__eq" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+    <div class="island__panel" data-island-panel hidden>
+      <div class="player">
+        <div class="player__meta">
+          <span class="label">Now playing</span>
+          <strong class="player__title">Got any Ringo?</strong>
+          <span class="label">Generative / Web Audio / 84 BPM</span>
+        </div>
+        <div class="player__row">
+          <button class="player__play" type="button" data-play aria-label="Play" aria-pressed="false"><span class="player__icon" aria-hidden="true"></span></button>
+          <div class="scrubber">
+            <input class="range" type="range" data-scrub min="0" max="1000" value="0" aria-label="Seek">
+            <div class="scrubber__times"><span class="label" data-time>0:00</span><span class="label" data-duration>0:00</span></div>
+          </div>
+        </div>
+        <div class="player__row player__row--split">
+          <label class="volume"><span class="label">Vol</span><input class="range" type="range" data-volume min="0" max="100" value="80" aria-label="Volume"></label>
+          <label class="toggle"><input type="checkbox" data-sfx checked><span class="toggle__track" aria-hidden="true"><span class="toggle__thumb"></span></span><span class="label">SFX</span></label>
+        </div>
+      </div>
+    </div>
   </div>
 
   <main>
-    <section class="hero" data-island="01 — Portrait">
+    <section class="hero" id="top" data-island="01 — Portrait">
       <canvas class="hero__canvas" data-hero-canvas aria-hidden="true"></canvas>
-      <h1 class="visually-hidden">YoWoRingo 曾博文</h1>
+      <h1 class="visually-hidden">YoWoRingo — %VITE_LEGAL_NAME% 曾博文</h1>
       <div class="hero__meta">
         <p class="label hero__corner hero__corner--tl" data-hero-reveal>(Portfolio)<br>Vol. 2026</p>
         <p class="label hero__corner hero__corner--tr" data-hero-reveal>New Taipei<br>Taiwan</p>
@@ -62,7 +90,7 @@
       </div>
     </section>
 
-    <section class="playground" data-island="02 — Playground">
+    <section class="playground" id="playground" data-island="02 — Playground">
       <header class="playground__head">
         <p class="label">(02) Playground</p>
         <h2 class="playground__title" data-split-lines><span>Pick it up.</span><span>Throw it around.</span></h2>
@@ -81,13 +109,19 @@
         <span class="pg-letter" data-body="letter" aria-hidden="true">n</span>
         <span class="pg-letter" data-body="letter" aria-hidden="true">g</span>
         <span class="pg-letter" data-body="letter" aria-hidden="true">o</span>
-        <span class="pg-tag" data-body="tag">Unity</span>
-        <span class="pg-tag" data-body="tag">Game Design</span>
-        <span class="pg-tag" data-body="tag">Street Photography</span>
-        <span class="pg-tag" data-body="tag">Seismic Data</span>
-        <span class="pg-tag" data-body="tag">Web</span>
-        <span class="pg-tag" data-body="tag">Scratch</span>
-        <span class="pg-tag pg-tag--signal" data-body="tag">Minecraft, since kindergarten</span>
+        <span class="pg-tag" data-body="tag">Redstone</span>
+        <span class="pg-tag" data-body="tag">Platform Screen Doors</span>
+        <span class="pg-tag pg-tag--wide" data-body="tag">Papers, Please</span>
+        <span class="pg-tag pg-tag--signal" data-body="tag">10,000 Members</span>
+        <span class="pg-tag" data-body="tag">DYFI</span>
+        <span class="pg-tag pg-tag--wide" data-body="tag">Heavy Rain Map</span>
+        <span class="pg-tag" data-body="tag">JavaScript</span>
+        <span class="pg-tag pg-tag--wide" data-body="tag">Python</span>
+        <span class="pg-tag pg-tag--wide" data-body="tag">Cloudflare</span>
+        <span class="pg-tag" data-body="tag">VRChat</span>
+        <span class="pg-tag" data-body="tag">120mm</span>
+        <span class="pg-tag pg-tag--wide" data-body="tag">100 Days</span>
+        <span class="pg-tag pg-tag--pink" data-body="tag">Pink</span>
         <div class="pg-card" data-body="card" data-href="works/twerg/" role="link" tabindex="0">
           <span class="label">Work 01</span><strong>TWERG</strong><span class="pg-card__sub">Taiwan Earthquake Recording Group</span>
         </div>
@@ -98,27 +132,182 @@
           <span class="label">Work 03</span><strong>Focal Length</strong><span class="pg-card__sub">Street photography, 23 to 439 mm</span>
         </div>
         <div class="pg-card pg-card--pending" data-body="card" data-href="works/galgame/" role="link" tabindex="0">
-          <span class="label">Work 04</span><strong>Galgame</strong><span class="pg-card__sub">Unity, in development</span>
+          <span class="label">Work 04</span><strong>100 Days</strong><span class="pg-card__sub">Galgame, Unity, in development</span>
         </div>
       </div>
     </section>
 
-    <section class="statement" data-island="03 — About">
-      <p class="label">(03) About — draft copy</p>
-      <p class="statement__text" data-split-lines>
-        <span>From a Minecraft kid</span>
-        <span>in New Taipei to the</span>
-        <span>founder of a network that</span>
-        <span>keeps people informed</span>
-        <span>when the ground moves.</span>
-      </p>
-      <p class="statement__todo label">[ v1: timeline, education, works, contact ]</p>
+    <section class="name" id="about" data-island="03 — The Name">
+      <p class="label">(03) The Name</p>
+      <div class="name__equation" data-name-eq>
+        <div class="name__term">
+          <span class="name__latin">YoWo</span>
+          <span class="name__cjk" lang="zh-Hant">有無</span>
+          <span class="label">"Is there any?"</span>
+        </div>
+        <span class="name__op" aria-hidden="true">+</span>
+        <div class="name__term">
+          <span class="name__latin">Ringo</span>
+          <span class="name__cjk" lang="ja">りんご</span>
+          <span class="label">"Apple", in Japanese</span>
+        </div>
+        <span class="name__op" aria-hidden="true">=</span>
+        <div class="name__term name__term--result">
+          <span class="name__latin">Got any Ringo?</span>
+          <span class="name__cjk" lang="zh-Hant">有無蘋果</span>
+          <span class="label">A name that asks a question</span>
+        </div>
+      </div>
+      <p class="name__note">Somebody out there is looking for apples. Most people just call me <em>Ringo</em>.</p>
+    </section>
+
+    <section class="story" id="story" data-island="04 — Story">
+      <div class="story__rail" aria-hidden="true">
+        <span class="label">Chapter</span>
+        <span class="story__index" data-story-index>01</span>
+        <span class="story__bar"><span data-story-bar></span></span>
+      </div>
+      <ol class="story__list">
+        <li class="chapter" data-chapter="01">
+          <p class="label chapter__when">2017 — 2024 / Minecraft</p>
+          <h3 class="chapter__title" data-split-lines><span>Built a national railway</span><span>for a country that</span><span>doesn't exist.</span></h3>
+          <p class="chapter__body">On the Ringo MRT Server, a group of friends and I founded the Republic of Ringo, and inside it, the National Ringo Railway Corporation. I built stations, and wired them with redstone and command blocks until minecarts dispatched, stopped and opened platform screen doors on their own.</p>
+          <ul class="chapter__tags"><li>Architecture</li><li>Redstone</li><li>Command blocks</li><li>Seven years</li></ul>
+        </li>
+        <li class="chapter" data-chapter="02">
+          <p class="label chapter__when">Junior high / Scratch</p>
+          <h3 class="chapter__title" data-split-lines><span>Rebuilt Papers, Please</span><span>in Scratch.</span></h3>
+          <p class="chapter__body">My school sent me to a city-wide competition. I brought a border-checkpoint game inspired by Papers, Please, and came home with a Merit Award from New Taipei City.</p>
+          <ul class="chapter__tags"><li>Game design</li><li>Merit Award</li></ul>
+        </li>
+        <li class="chapter" data-chapter="03">
+          <p class="label chapter__when">2018 — now / TWERG</p>
+          <h3 class="chapter__title" data-split-lines><span>"Can I add you</span><span>on Discord?"</span></h3>
+          <p class="chapter__body">One question in an earthquake livestream chat turned into the Taiwan Earthquake Recording Group. Eight years later it is a community of 10,000 people. I built its website, its heavy rain warning map and its DYFI intensity algorithm: JavaScript and CSS on the front, Python to train and check the math, Cloudflare to keep it online.</p>
+          <ul class="chapter__tags"><li>Founder</li><li>10,000 members</li><li>JavaScript</li><li>Python</li><li>Cloudflare</li></ul>
+        </li>
+        <li class="chapter" data-chapter="04">
+          <p class="label chapter__when">VRChat / Xiaomi 14 Ultra</p>
+          <h3 class="chapter__title" data-split-lines><span>Learned to see</span><span>in worlds that</span><span>don't exist.</span></h3>
+          <p class="chapter__body">I could not take a photo until I started shooting inside VRChat. Frame after virtual frame taught me photography by subtraction: take things away until only the point remains. Now I reach for long lenses to find what the naked eye walks past.</p>
+          <ul class="chapter__tags"><li>Composition by subtraction</li><li>75mm</li><li>120mm</li></ul>
+          <a class="chapter__link" href="photography/">Enter Focal Length<span aria-hidden="true"></span></a>
+        </li>
+        <li class="chapter" data-chapter="05">
+          <p class="label chapter__when">In development / Unity</p>
+          <h3 class="chapter__title" data-split-lines><span>Two siblings.</span><span>A debt they never made.</span><span>One hundred days.</span></h3>
+          <p class="chapter__body">A dark galgame where every number and every line of text is tuned by hand. Planning, programming, writing and systems design are mine. Art, music and sound come from collaborators.</p>
+          <ul class="chapter__tags"><li>Narrative design</li><li>Systems</li><li>Unity</li></ul>
+        </li>
+      </ol>
+    </section>
+
+    <section class="works" id="works" data-island="05 — Works">
+      <header class="section-head">
+        <p class="label">(05) Selected Works</p>
+        <h2 class="section-title" data-split-lines><span>Things I made</span><span>on purpose.</span></h2>
+      </header>
+      <ul class="works__list" data-works>
+        <li class="work" data-preview="twerg">
+          <a class="work__link" href="works/twerg/">
+            <span class="label work__no">01</span>
+            <span class="work__title">TWERG</span>
+            <span class="work__meta">Founder / Web, maps, DYFI</span>
+            <span class="label work__year">2018 — now</span>
+          </a>
+        </li>
+        <li class="work" data-preview="plum">
+          <a class="work__link" href="works/plum/">
+            <span class="label work__no">02</span>
+            <span class="work__title">Beyond the Point</span>
+            <span class="work__meta">Method / Rupture directivity from live PGA</span>
+            <span class="label work__year">Research</span>
+          </a>
+        </li>
+        <li class="work" data-preview="photo">
+          <a class="work__link" href="photography/">
+            <span class="label work__no">03</span>
+            <span class="work__title">Focal Length</span>
+            <span class="work__meta">Photography / 54 frames, 23 to 439 mm</span>
+            <span class="label work__year">Ongoing</span>
+          </a>
+        </li>
+        <li class="work work--pending" data-preview="galgame">
+          <a class="work__link" href="works/galgame/">
+            <span class="label work__no">04</span>
+            <span class="work__title">100 Days</span>
+            <span class="work__meta">Galgame / Working title, in development</span>
+            <span class="label work__year">Soon</span>
+          </a>
+        </li>
+      </ul>
+      <div class="works__preview" data-works-preview aria-hidden="true">
+        <picture data-preview-item="twerg"><source srcset="/img/twerg-dyfi-720.avif" type="image/avif"><img src="/img/twerg-dyfi-720.webp" alt="" loading="lazy" decoding="async"></picture>
+        <div class="works__plum" data-preview-item="plum"><video muted loop playsinline preload="none" data-src="video/plum.mp4"></video><span class="label">Demo / low resolution</span></div>
+        <picture data-preview-item="photo"><source srcset="/photos/p21-640.avif" type="image/avif"><img src="/photos/p21-640.webp" alt="" loading="lazy" decoding="async"></picture>
+        <div class="works__pending" data-preview-item="galgame"><span class="label">[ Key art pending ]</span></div>
+      </div>
+      <div class="edu">
+        <p class="label">Education</p>
+        <div class="tabs" data-tabs>
+          <div class="tabs__list" role="tablist" aria-label="Education and toolkit">
+            <button class="tabs__tab" role="tab" aria-selected="true" aria-controls="tab-edu" id="tab-edu-btn" type="button">Education</button>
+            <button class="tabs__tab" role="tab" aria-selected="false" aria-controls="tab-tools" id="tab-tools-btn" type="button" tabindex="-1">Toolkit</button>
+            <span class="tabs__ink" aria-hidden="true"></span>
+          </div>
+          <div class="tabs__panel" role="tabpanel" id="tab-edu" aria-labelledby="tab-edu-btn">
+            <dl class="edu__list">
+              <div><dt>Bachelor of Arts in Multimedia Design</dt><dd>National Formosa University</dd><dd class="label">In progress</dd></div>
+              <div><dt>Associate of Science in Information Engineering</dt><dd>Taipei City University of Science and Technology</dd><dd class="label">2026</dd></div>
+            </dl>
+          </div>
+          <div class="tabs__panel" role="tabpanel" id="tab-tools" aria-labelledby="tab-tools-btn" hidden>
+            <ul class="edu__tools">
+              <li>JavaScript</li><li>CSS</li><li>Python</li><li>Cloudflare</li><li>Unity</li><li>Scratch</li><li>Redstone logic</li><li>Xiaomi 14 Ultra</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="record" id="off-the-record" data-island="06 — Off the Record">
+      <header class="section-head">
+        <p class="label">(06) Off the Record</p>
+        <h2 class="section-title" data-split-lines><span>The quieter</span><span>half of me.</span></h2>
+      </header>
+      <ul class="record__grid">
+        <li class="note note--pink"><span class="label">01</span><p>Pink is my favorite color. Kuromi is my favorite character. Both are non-negotiable.</p></li>
+        <li class="note"><span class="label">02</span><p>"Sensitive, and careful with details." A school counselor said it first. The numbers in my galgame agree.</p></li>
+        <li class="note note--photo">
+          <picture><source srcset="/photos/p41-640.avif" type="image/avif"><img src="/photos/p41-640.webp" alt="A plush doll beside a rose in a silver vase" loading="lazy" decoding="async"></picture>
+          <span class="label">03</span><p>I collect life-size dolls, shop for their outfits, then photograph them. This one is on 75mm.</p>
+        </li>
+        <li class="note"><span class="label">04</span><p>Anime, yuri, and other people's original characters. I love seeing what people invent.</p></li>
+        <li class="note"><span class="label">05</span><p>Restless curiosity. I would rather try ten new things than repeat one. That is how a Minecraft kid ended up here.</p></li>
+      </ul>
+    </section>
+
+    <section class="contact" id="contact" data-island="07 — Contact">
+      <p class="label">(07) Contact</p>
+      <h2 class="contact__title" data-split-lines><span>Got any</span><span>Ringo?</span></h2>
+      <p class="contact__lead">Looking for one? Let's talk.</p>
+      <button class="contact__email" type="button" data-copy="%VITE_EMAIL%">
+        <span class="contact__email-text">%VITE_EMAIL%</span>
+        <span class="label contact__email-hint">Click to copy</span>
+      </button>
+      <ul class="contact__links">
+        <li><a href="%VITE_INSTAGRAM%" target="_blank" rel="noopener"><span>Instagram</span><span class="label">@yowoapple</span></a></li>
+        <li><a href="%VITE_X%" target="_blank" rel="noopener"><span>X</span><span class="label">@AppleJackOAO</span></a></li>
+        <li><a href="%VITE_GITHUB%" target="_blank" rel="noopener"><span>GitHub</span><span class="label">Yowoapple</span></a></li>
+        <li><button type="button" data-resume aria-disabled="true"><span>Resume</span><span class="label">PDF / Soon</span></button></li>
+      </ul>
     </section>
   </main>
 
   <footer class="foot">
-    <span class="label">v0 — design draft</span>
-    <span class="label">Shift + T for Tweaks</span>
+    <span class="label">&copy; 2026 YoWoRingo / %VITE_LEGAL_NAME%</span>
+    <span class="label">Chinese type set in HarmonyOS Sans</span>
+    <a class="label" href="#top" data-top>Back to top</a>
   </footer>
 </body>
 </html>
