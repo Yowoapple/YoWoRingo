@@ -12,6 +12,7 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
         <span class="label">Go</span>
         <input class="palette__input" type="text" placeholder="Type a command or search" autocomplete="off" spellcheck="false" aria-controls="palette-list">
         <kbd class="palette__kbd">Esc</kbd>
+        <button class="palette__close" type="button" data-close>Close</button>
       </div>
       <ul class="palette__list" id="palette-list" role="listbox"></ul>
     </div>`;
@@ -21,6 +22,8 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
   let items = [];
   let active = 0;
   let lastFocus = null;
+  const touch = window.matchMedia('(pointer: coarse)').matches;
+  root.querySelector('.palette__panel').tabIndex = -1;
 
   function score(cmd, q) {
     if (!q) return 1;
@@ -34,7 +37,7 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
   function render() {
     const q = input.value.trim().toLowerCase();
     items = getCommands().filter(c => !c.hidden || (c.secret && q === c.secret)).map(c => ({ c, s: c.secret ? (q === c.secret ? 3 : 0) : score(c, q) })).filter(x => x.s > 0).sort((a, b) => b.s - a.s).map(x => x.c);
-    active = Math.min(active, Math.max(0, items.length - 1));
+    active = Math.min(active, items.length - 1);
     list.innerHTML = '';
     let group = '';
     items.forEach((cmd, i) => {
@@ -90,11 +93,13 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
     lastFocus = document.activeElement;
     root.hidden = false;
     input.value = '';
-    active = 0;
+    active = touch ? -1 : 0;
     render();
+    list.scrollTop = 0;
     requestAnimationFrame(() => {
       root.classList.add('is-open');
-      input.focus();
+      if (!touch) input.focus();
+      else root.querySelector('.palette__panel').focus({ preventScroll: true });
     });
     document.documentElement.classList.add('is-locked');
     onOpen?.();
@@ -111,7 +116,7 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
   }
 
   input.addEventListener('input', () => {
-    active = 0;
+    active = input.value ? 0 : touch ? -1 : 0;
     render();
   });
   input.addEventListener('keydown', e => {
