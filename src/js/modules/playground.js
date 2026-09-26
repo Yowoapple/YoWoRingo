@@ -32,9 +32,9 @@ export function createPlayground(stage, options = {}) {
     const opts = { isStatic: true, friction: 0.6, restitution: 0.2 };
     walls = [
       Bodies.rectangle(W / 2, H + wallThickness / 2, W * 3, wallThickness, opts),
-      Bodies.rectangle(-wallThickness / 2, H / 2 - H, wallThickness, H * 4, opts),
-      Bodies.rectangle(W + wallThickness / 2, H / 2 - H, wallThickness, H * 4, opts),
-      Bodies.rectangle(W / 2, -H * 2.5, W * 3, wallThickness, opts)
+      Bodies.rectangle(-wallThickness / 2, -H, wallThickness, H * 5, opts),
+      Bodies.rectangle(W + wallThickness / 2, -H, wallThickness, H * 5, opts),
+      Bodies.rectangle(W / 2, -H * 3.2, W * 3, wallThickness, opts)
     ];
     Composite.add(engine.world, walls);
   }
@@ -45,7 +45,7 @@ export function createPlayground(stage, options = {}) {
       const h = el.offsetHeight;
       const kind = el.dataset.body;
       const x = clamp(W * (0.12 + Math.random() * 0.76), w / 2 + 4, W - w / 2 - 4);
-      const y = -h - index * (H * 0.09) - Math.random() * 80;
+      const y = -h / 2 - 40 - (index / items.length) * H * 1.3 - Math.random() * 60;
       const body = Bodies.rectangle(x, y, w, h, {
         chamfer: { radius: kind === 'tag' ? Math.min(h / 2, 24) : 2 },
         restitution: kind === 'letter' ? 0.35 : 0.25,
@@ -60,8 +60,18 @@ export function createPlayground(stage, options = {}) {
     });
   }
 
+  function rescue(body, w, h) {
+    const { x, y } = body.position;
+    if (y > H + 200 || y < -H * 3 || x < -200 || x > W + 200) {
+      Body.setPosition(body, { x: clamp(W * (0.2 + Math.random() * 0.6), w / 2, W - w / 2), y: -h });
+      Body.setVelocity(body, { x: 0, y: 0 });
+      Body.setAngularVelocity(body, 0);
+    }
+  }
+
   function sync() {
     for (const [el, { body, w, h }] of bodies) {
+      rescue(body, w, h);
       el.style.transform = `translate3d(${body.position.x - w / 2}px, ${body.position.y - h / 2}px, 0) rotate(${body.angle}rad)`;
     }
   }

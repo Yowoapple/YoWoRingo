@@ -22,8 +22,9 @@
 .name__equation {
   display: grid;
   grid-template-columns: 1fr auto 1fr auto 1.4fr;
-  align-items: end;
+  align-items: start;
   gap: var(--space-3);
+  --latin: clamp(2.25rem, 5.6vw, 6rem);
 }
 
 .name__term {
@@ -34,7 +35,7 @@
 }
 
 .name__latin {
-  font-size: clamp(2.25rem, 5.6vw, 6rem);
+  font-size: var(--latin);
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -0.05em;
@@ -59,8 +60,9 @@
   font-family: var(--font-mono);
   font-size: clamp(1.5rem, 3vw, 3rem);
   font-weight: 300;
+  line-height: 1;
   color: var(--mute);
-  padding-bottom: 2.4em;
+  padding-top: calc(var(--space-2) + var(--space-1) + var(--latin) * 0.45 - 0.5em);
 }
 
 .name__note {
@@ -558,7 +560,7 @@
   }
 
   .name__op {
-    padding-bottom: 0;
+    padding-top: 0;
   }
 
   .story {

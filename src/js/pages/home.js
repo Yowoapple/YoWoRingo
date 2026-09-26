@@ -186,7 +186,7 @@ initPalette(() => [
   { group: 'Elsewhere', title: 'X', hint: '@AppleJackOAO', run: () => window.open(env.VITE_X, '_blank', 'noopener') },
   { group: 'Elsewhere', title: 'GitHub', hint: 'Yowoapple', run: () => window.open(env.VITE_GITHUB, '_blank', 'noopener') },
   { group: 'Secret', title: 'Kuromi', hint: 'You found it', hidden: true, secret: 'kuromi', run: kuromi }
-]);
+], { onOpen: () => lenis?.stop(), onClose: () => lenis?.start() });
 
 ScrollTrigger.refresh();
 

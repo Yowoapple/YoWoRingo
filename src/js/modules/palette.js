@@ -1,9 +1,10 @@
 import { audio } from './audio.js';
 
-export function initPalette(getCommands) {
+export function initPalette(getCommands, { onOpen, onClose } = {}) {
   const root = document.createElement('div');
   root.className = 'palette';
   root.hidden = true;
+  root.setAttribute('data-lenis-prevent', '');
   root.innerHTML = `
     <div class="palette__scrim" data-close></div>
     <div class="palette__panel" role="dialog" aria-modal="true" aria-label="Command palette">
@@ -96,6 +97,7 @@ export function initPalette(getCommands) {
       input.focus();
     });
     document.documentElement.classList.add('is-locked');
+    onOpen?.();
     audio.tick(1600, 0.05);
   }
 
@@ -103,6 +105,7 @@ export function initPalette(getCommands) {
     if (root.hidden) return;
     root.classList.remove('is-open');
     document.documentElement.classList.remove('is-locked');
+    onClose?.();
     setTimeout(() => (root.hidden = true), 220);
     lastFocus?.focus?.({ preventScroll: true });
   }
