@@ -1,0 +1,123 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(var(--space-2) + env(safe-area-inset-top)) var(--gutter) var(--space-2);
+  pointer-events: none;
+}
+
+.nav::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 -32px;
+  z-index: -1;
+  background: linear-gradient(var(--ink) 35%, rgb(11 11 12 / 0));
+  pointer-events: none;
+}
+
+.nav > * {
+  pointer-events: auto;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.wordmark__px {
+  width: 0.34em;
+  height: 0.34em;
+  margin-bottom: 0.08em;
+  background: var(--signal);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.wordmark:hover .wordmark__px {
+  transform: translate(0.14em, -0.5em) rotate(90deg);
+}
+
+.nav__actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.nav__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.nav__btn:hover {
+  border-color: var(--paper);
+}
+
+.nav__btn-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  text-transform: uppercase;
+  min-width: 2ch;
+}
+
+.nav__globe {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+
+.nav__btn.is-spinning .nav__globe {
+  animation: globe-spin 0.7s var(--ease-out);
+}
+
+@keyframes globe-spin {
+  from { transform: rotateY(0); }
+  to { transform: rotateY(360deg); }
+}
+
+.sound-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.sound-bars i {
+  width: 2px;
+  height: 3px;
+  background: currentColor;
+  transition: height var(--dur-fast) var(--ease-out);
+}
+
+[data-sound='on'] .sound-bars i {
+  animation: bars 0.9s ease-in-out infinite alternate;
+}
+
+[data-sound='on'] .sound-bars i:nth-child(2) { animation-delay: -0.3s; }
+[data-sound='on'] .sound-bars i:nth-child(3) { animation-delay: -0.6s; }
+[data-sound='on'] .sound-bars i:nth-child(4) { animation-delay: -0.15s; }
+
+@keyframes bars {
+  from { height: 3px; }
+  to { height: 14px; }
+}
+
+@media (max-width: 640px) {
+  .nav__btn[data-sound] .nav__btn-label {
+    display: none;
+  }
+}

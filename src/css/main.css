@@ -1,7 +1,16 @@
 @import '@fontsource-variable/schibsted-grotesk';
 @import '@fontsource-variable/azeret-mono';
+@import 'lenis/dist/lenis.css';
 @import './tokens.css';
 @import './base.css';
+@import './components/buttons.css';
+@import './components/nav.css';
+@import './components/island.css';
+@import './components/gate.css';
+@import './components/hero.css';
+@import './components/playground.css';
+@import './components/statement.css';
+@import './components/tweaks.css';
 
 .shell {
   min-height: 100dvh;

@@ -1,0 +1,58 @@
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  background: var(--ink);
+  transition: clip-path 0.9s var(--ease-in-out);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.gate.is-leaving {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  pointer-events: none;
+}
+
+.gate__inner {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.gate__count {
+  font-family: var(--font-mono);
+  font-size: clamp(4rem, 16vw, 10rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
+  transition: color var(--dur) var(--ease-out);
+}
+
+.gate.is-ready .gate__count {
+  color: var(--mute);
+}
+
+.gate__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1);
+  animation: rise 0.8s var(--ease-out) both;
+}
+
+.gate__actions[hidden] {
+  display: none;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+.is-gated body {
+  overflow: hidden;
+}

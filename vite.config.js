@@ -6,7 +6,7 @@ const root = import.meta.dirname;
 export default defineConfig({
   base: '/YoWoRingo/',
   build: {
-    target: 'es2020',
+    target: 'es2022',
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),

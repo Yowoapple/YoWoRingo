@@ -24,11 +24,6 @@ body {
   overflow-x: clip;
 }
 
-:lang(zh-Hant) body,
-:lang(zh-Hans) body {
-  font-family: var(--font-cjk);
-}
-
 img,
 video,
 canvas,

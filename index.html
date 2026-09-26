@@ -4,14 +4,121 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0b0c">
-  <meta name="description" content="YoWoRingo — developer, designer and photographer from New Taipei, Taiwan.">
+  <meta name="description" content="YoWoRingo — founder of TWERG, game developer and street photographer from New Taipei, Taiwan.">
   <title>YoWoRingo</title>
-  <script type="module" src="/src/js/main.js"></script>
+  <link rel="preload" href="/img/portrait-sample.png" as="image">
+  <script type="module" src="/src/js/pages/home.js"></script>
 </head>
-<body>
-  <main class="shell">
-    <p class="label">Portfolio / 2026</p>
-    <h1 class="shell__title">YoWoRingo</h1>
+<body data-page="home">
+  <div class="gate" data-gate>
+    <div class="gate__inner">
+      <p class="label gate__kicker">YoWoRingo / Portfolio 2026</p>
+      <p class="gate__count" aria-live="polite"><span data-gate-count>000</span></p>
+      <div class="gate__actions" data-gate-actions hidden>
+        <button class="btn btn--solid" type="button" data-enter="sound">Enter with sound</button>
+        <button class="btn btn--ghost" type="button" data-enter="silent">Enter in silence</button>
+      </div>
+      <p class="label gate__note">Headphones recommended</p>
+    </div>
+  </div>
+
+  <header class="nav">
+    <a class="wordmark" href="./" aria-label="YoWoRingo home">
+      <span class="wordmark__text">YoWoRingo</span><span class="wordmark__px" aria-hidden="true"></span>
+    </a>
+    <div class="nav__actions">
+      <button class="nav__btn" type="button" data-lang aria-label="Language">
+        <svg class="nav__globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.6 7.5h14.8M4.6 16.5h14.8"/></svg>
+        <span class="nav__btn-label" data-lang-label>EN</span>
+      </button>
+      <button class="nav__btn" type="button" data-sound aria-pressed="false" aria-label="Sound">
+        <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="nav__btn-label">Sound</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="island" data-island-el role="status">
+    <span class="island__px" aria-hidden="true"></span>
+    <span class="island__label" data-island-label>01 — Portrait</span>
+  </div>
+
+  <main>
+    <section class="hero" data-island="01 — Portrait">
+      <canvas class="hero__canvas" data-hero-canvas aria-hidden="true"></canvas>
+      <h1 class="visually-hidden">YoWoRingo 曾博文</h1>
+      <div class="hero__meta">
+        <p class="label hero__corner hero__corner--tl" data-hero-reveal>(Portfolio)<br>Vol. 2026</p>
+        <p class="label hero__corner hero__corner--tr" data-hero-reveal>New Taipei<br>Taiwan</p>
+        <ul class="hero__roles" data-hero-reveal>
+          <li><span class="label">01</span>Founder, TWERG</li>
+          <li><span class="label">02</span>Game Developer</li>
+          <li><span class="label">03</span>Street Photographer</li>
+        </ul>
+        <div class="hero__corner hero__corner--br" data-hero-reveal>
+          <span class="hero__scroll-track" aria-hidden="true"><span></span></span>
+          <p class="label">Hover to disturb<br>Scroll to reassemble</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="playground" data-island="02 — Playground">
+      <header class="playground__head">
+        <p class="label">(02) Playground</p>
+        <h2 class="playground__title" data-split-lines><span>Pick it up.</span><span>Throw it around.</span></h2>
+        <div class="playground__tools">
+          <button class="chip" type="button" data-tilt hidden>Enable tilt</button>
+          <button class="chip" type="button" data-shake>Shake</button>
+        </div>
+      </header>
+      <div class="playground__stage" data-stage>
+        <span class="pg-letter" data-body="letter" aria-hidden="true">Y</span>
+        <span class="pg-letter" data-body="letter" aria-hidden="true">o</span>
+        <span class="pg-letter" data-body="letter" aria-hidden="true">W</span>
+        <span class="pg-letter" data-body="letter" aria-hidden="true">o</span>
+        <span class="pg-letter" data-body="letter" aria-hidden="true">R</span>
+        <span class="pg-letter" data-body="letter" aria-hidden="true">i</span>
+        <span class="pg-letter" data-body="letter" aria-hidden="true">n</span>
+        <span class="pg-letter" data-body="letter" aria-hidden="true">g</span>
+        <span class="pg-letter" data-body="letter" aria-hidden="true">o</span>
+        <span class="pg-tag" data-body="tag">Unity</span>
+        <span class="pg-tag" data-body="tag">Game Design</span>
+        <span class="pg-tag" data-body="tag">Street Photography</span>
+        <span class="pg-tag" data-body="tag">Seismic Data</span>
+        <span class="pg-tag" data-body="tag">Web</span>
+        <span class="pg-tag" data-body="tag">Scratch</span>
+        <span class="pg-tag pg-tag--signal" data-body="tag">Minecraft, since kindergarten</span>
+        <div class="pg-card" data-body="card" data-href="works/twerg/" role="link" tabindex="0">
+          <span class="label">Work 01</span><strong>TWERG</strong><span class="pg-card__sub">Taiwan Earthquake Recording Group</span>
+        </div>
+        <div class="pg-card" data-body="card" data-href="works/plum/" role="link" tabindex="0">
+          <span class="label">Work 02</span><strong>Beyond the Point</strong><span class="pg-card__sub">Directivity-aware intensity estimation</span>
+        </div>
+        <div class="pg-card" data-body="card" data-href="photography/" role="link" tabindex="0">
+          <span class="label">Work 03</span><strong>Focal Length</strong><span class="pg-card__sub">Street photography, 23 to 439 mm</span>
+        </div>
+        <div class="pg-card pg-card--pending" data-body="card" data-href="works/galgame/" role="link" tabindex="0">
+          <span class="label">Work 04</span><strong>Galgame</strong><span class="pg-card__sub">Unity, in development</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement" data-island="03 — About">
+      <p class="label">(03) About — draft copy</p>
+      <p class="statement__text" data-split-lines>
+        <span>From a Minecraft kid</span>
+        <span>in New Taipei to the</span>
+        <span>founder of a network that</span>
+        <span>keeps people informed</span>
+        <span>when the ground moves.</span>
+      </p>
+      <p class="statement__todo label">[ v1: timeline, education, works, contact ]</p>
+    </section>
   </main>
+
+  <footer class="foot">
+    <span class="label">v0 — design draft</span>
+    <span class="label">Shift + T for Tweaks</span>
+  </footer>
 </body>
 </html>
