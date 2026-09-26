@@ -1,0 +1,1061 @@
+[
+ {
+  "id": "p01",
+  "mark": "overlay",
+  "camera": "Xiaomi 14",
+  "focal": 75,
+  "aperture": "f/2.0",
+  "shutter": "1/60s",
+  "iso": 500,
+  "width": 2621,
+  "height": 3495,
+  "ratio": 0.7499,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(24 8 8)",
+  "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABQBACdASoYACAAPtFaok2oJaMiN+gBABoJZQDG9H/N2q6k/cGw6Yd64AlAAP76OBNMhcJIw8dTxV7tiWPB6f9M26gc7WDWhoWI66J2G11aaMkFc19NKoqFONu6oVsyq9bSdNUf7gzPTgAA"
+ },
+ {
+  "id": "p02",
+  "mark": "overlay",
+  "camera": "Xiaomi 14",
+  "focal": 75,
+  "aperture": "f/2.0",
+  "shutter": "1/120s",
+  "iso": 64,
+  "width": 3060,
+  "height": 4080,
+  "ratio": 0.75,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwBACdASoYACAAPu1wrlIppiQiqAgBMB2JaQAA7g/Rv5ciC12q72D8cdYaVzE4ToAA/veH6Mfcx1ODydkpO5tl1KZE4s99COQ6cgZwPFa982To68e1bIN4UDumFq5dwtQykNBmYnLLZNyObNUpvBLn/GbnKGrk1JNh2Y82KTwAAA=="
+ },
+ {
+  "id": "p03",
+  "mark": "overlay",
+  "camera": "Xiaomi 14",
+  "focal": 75,
+  "aperture": "f/2.0",
+  "shutter": "1/120s",
+  "iso": 160,
+  "width": 2573,
+  "height": 3430,
+  "ratio": 0.7501,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 24)",
+  "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAQBQCdASoYACAAPu1krE6ppaSiKA1RMB2JagCxH2QBNU5Hm9XaUDVKZ9uzexKn9PUAAP7mX9lfGuZM+Tau9IslXuPjSzpH/RkRPXEOmy9M1uNRm1jEuLKLVL/uT/Qew68rvInKeLbbu9StLpbl3XeR3OOglwXgHmBreI3ffj96U9F9HQVpnJcXZ8VFAaZnQ9hup7QtLgAAAA=="
+ },
+ {
+  "id": "p04",
+  "mark": "overlay",
+  "camera": "Xiaomi 14",
+  "focal": 46,
+  "aperture": "f/1.6",
+  "shutter": "1/2605s",
+  "iso": 50,
+  "width": 2665,
+  "height": 3553,
+  "ratio": 0.7501,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(24 24 24)",
+  "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABQBQCdASoYACAAPuFSpE2opCOiN/qoARAcCWoAuyiAAbvjisJXSqvLGoPxeCV/92OJ3wAA99wrJ8Xg0e1MQMBdWlgnREbD1aB21rnHVC1AZGIZsTYVUZEuqozIDXx1CJN+y1E475qSxAhx2W7KbeBuRxH2qo/UoqN+nCi6wpyq25wPFqwbNcl6bVeoIAAA"
+ },
+ {
+  "id": "p05",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/120s",
+  "iso": 250,
+  "date": "2025-09-05",
+  "width": 4096,
+  "height": 3069,
+  "ratio": 1.3346,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAwCdASoYABIAPu1mqk2ppaQsMAgBgB2JQBfJA3Rr1c5hDijkiEEUAP7ytImNBZ9xnXVQzf+/P4xOVytRw2Nue6PfWzk7jZrunv69HqH0rEPizsW7l6E1HeFORsMPogAAAA=="
+ },
+ {
+  "id": "p06",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/146s",
+  "iso": 50,
+  "date": "2025-09-06",
+  "width": 3072,
+  "height": 4093,
+  "ratio": 0.7505,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACwBQCdASoYACAAPu1mqk8ppaOiKA1RMB2JQBWAB7o+/I31K9LUvljfP7RJ59zyapyAdKR8+WAA4l1J63R1ug7/FMq3Hh/rbhaxmNSd9/HLk/SHYGjqK5KWNWwyZ1AsMBtnBCxGUiHbWFYf+s/T0/sAUEiLl6ifX5eEANJF/JITzOb9yTtXb40k+R3eIThIr7+MrnWisiAFi1p3rSYpp24dDiIAAA=="
+ },
+ {
+  "id": "p07",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/2723s",
+  "iso": 50,
+  "date": "2025-09-07",
+  "width": 3072,
+  "height": 4093,
+  "ratio": 0.7505,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(24 104 184)",
+  "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAwBQCdASoYACAAPt1cpU2opSOiN/qoARAbiWoAnTlBUt4GgtAmnhope8PxXX8Gxt2pQAD+4upQ65amcqh/uDOu2C4Y5W3NmvnKq+Zz6eCN65nRQXNTqJK5gVupdYcC9VHg9S371lKGxQ5ea1tmPltHGRG+G4gzKOG9sreoFM0OBuFlUivkDPUkAAA="
+ },
+ {
+  "id": "p08",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 439,
+  "aperture": "f/2.5",
+  "shutter": "1/24488s",
+  "iso": 50,
+  "date": "2025-09-07",
+  "width": 4096,
+  "height": 3069,
+  "ratio": 1.3346,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQBACdASoYABIAPu1kqk2ppaQiMAgBMB2JYgC/7CFsFXLhVvZGnH2AAAD+8qn8z046+PvCrJWUnGeFLz8rJF7wnEGHglAFbKrVADsE/KttAAAA"
+ },
+ {
+  "id": "p09",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/60s",
+  "iso": 1000,
+  "date": "2025-09-07",
+  "width": 3072,
+  "height": 4093,
+  "ratio": 0.7505,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 24 40)",
+  "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoYACAAPu1opU2ppqMjMBgMATAdiUAVhmtIUwKkewYLR2AAAPx/ev0WHUKyWj5OzNcBMJBn4Nz6Ck/VS8Ik//owLmHx537pI9aE5kaQyHi+842dj+IS0sligkg+a76V7AAAAA=="
+ },
+ {
+  "id": "p10",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 23,
+  "aperture": "f/2.0",
+  "shutter": "1/3883s",
+  "iso": 50,
+  "date": "2025-09-08",
+  "width": 2923,
+  "height": 3892,
+  "ratio": 0.751,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAQBQCdASoYACAAPt1SpU2opCOiN/qoARAbiWwAsR6EekhfN1G7a2uXprvRkZ2fwARYAP5uyiyGyyHt7bA4Pq2ZQrvQ//G8dIKiFfeJ3/+bA/pnob6i11JI/xAl5zGvJ1fd0X7F5NSfBFwCc37LmYn+fvrJbKM71KSKGWC29zGYkkgT3B81Oy9+yUGyigduCB1HoksVwAA="
+ },
+ {
+  "id": "p11",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 46,
+  "aperture": "f/2.0",
+  "shutter": "1/120s",
+  "iso": 50,
+  "date": "2025-09-05",
+  "width": 3072,
+  "height": 4093,
+  "ratio": 0.7505,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(248 248 248)",
+  "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBQCdASoYACAAPu1sqlEppaOiqAqpMB2JQBWADSwTk1+nYNqA97Dl0uCI6CAX4wPjEYAA/vjBOH4mwdf3vQJaZUR/8dtTWof2Ghx3owqNjZwlepMj6eQKqG+MeHSYFxSrOAaRGE/XqCSM00sevCAtLWhuwcVxlT7yUau1zKNotYyPTPQSCIREPG8E4wcwXeognO64YiGiTLwFKfOaWGgA"
+ },
+ {
+  "id": "p12",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/120s",
+  "iso": 160,
+  "date": "2025-09-05",
+  "width": 3072,
+  "height": 4093,
+  "ratio": 0.7505,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAADQBQCdASoYACAAPu1sq1EppaOiqAqpMB2JZgCzgBEbN+rf3v7vpIRNy29plq98v8n8yL88tU8AAP7vLNbzEDyHSAkW9sjd+1O5Jp0WUHlLj2dHw71c4+AxyFRDrSZlPBuFKVwbb4cUBeRh8r1MpC6qsElj9ZDWVxxbheBg5dFQxhF0/1gUKJha4aScgIPXOcOC3alBr22Gu36wkbhxtwcBaAA="
+ },
+ {
+  "id": "p13",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 46,
+  "aperture": "f/2.0",
+  "shutter": "1/350s",
+  "iso": 50,
+  "date": "2025-09-07",
+  "width": 2999,
+  "height": 4005,
+  "ratio": 0.7488,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(248 248 248)",
+  "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBQCdASoYACAAPu1gqU2ppaQiMBgMATAdiWQAgnAVw9BLtTVT13jgTB+NJSIl1qic/uSEdAAA/vXvQuMMiqFdYBcl8G6DGpx2nMCWfffE1iVjnX2PR0PR8EmCLZMm+3vzl5Ab9gPyvBZLHC77ucSBLGcrpTinhyV7ZBjYtOuRYwpdetA2BK6GqOTU25H64BpEKyC5AmBFeTN4NIIIgxdkAAA="
+ },
+ {
+  "id": "p14",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/1380s",
+  "iso": 50,
+  "date": "2025-09-07",
+  "width": 3072,
+  "height": 4093,
+  "ratio": 0.7505,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABwBQCdASoYACAAPt1cpU2opSOiN/qoARAbiWwAnTLQwufa963Xta2fePGQ4jpNIH223xwAAP7ZTxtSb9L1hKK6mijyuVtSWL3luXHOWJ+15+9rDPZZws525qaRb+M+iN8wFgY0I0DjTBTrIsbeq3dWIAjCvqFPzSS2vghP/+m+COtH/BFhdJjcNPPsG/qNU0fCSw54pfHI2+kZW4v5EgAA"
+ },
+ {
+  "id": "p15",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/710s",
+  "iso": 50,
+  "date": "2025-09-07",
+  "width": 2999,
+  "height": 4005,
+  "ratio": 0.7488,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(24 24 24)",
+  "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAACwBQCdASoYACAAPt1co02opSMiN/qoARAbiWIAuwW2AXBJYVwRszJVbTFgCoJ5ch3UOqJus8QA/C7eCJccRYtBGISd14Rxbsx1Lx3LuUsKAksZMyizd3gnISxC4AsSxzT545q5SmstnsoWhO3vw8of2e93gukK2Y+eF/EDYwip7vPm7bQzCPZQAAA="
+ },
+ {
+  "id": "p16",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 46,
+  "aperture": "f/2.0",
+  "shutter": "1/2384s",
+  "iso": 50,
+  "date": "2025-09-07",
+  "width": 4096,
+  "height": 3069,
+  "ratio": 1.3346,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAwBQCdASoYABIAPu1mqk2ppaQiMAgBMB2JaACsM75CAC2AYca6EaXpUC9j0yQNawDwIADpGRYaTt7PuF6MD3ta6IGTP/gczkN+9TZTv8NCF/S8tHeG83pZwjgAlvpwC61qC+8j9a5zQXAy8c8WhpbLY20xgYAA"
+ },
+ {
+  "id": "p17",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 245,
+  "aperture": "f/2.5",
+  "shutter": "1/1961s",
+  "iso": 50,
+  "date": "2025-09-07",
+  "width": 3072,
+  "height": 4093,
+  "ratio": 0.7505,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACwBACdASoYACAAPtleo02oKaMiN/qoATAbCWwAuy6AUwACaFWcHrYFzt8FYpGAAP7pTgi7sUltPRHo6hHrND2mWt8P5aYvRlZs5w/7fr1oEvMyJi5V9+7KBzJECX9E3dw5hV/og36EfehF1oa5P59ZTr6KEA/9/1Kv4AAA"
+ },
+ {
+  "id": "p18",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/416s",
+  "iso": 100,
+  "date": "2025-09-07",
+  "width": 3072,
+  "height": 4093,
+  "ratio": 0.7505,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(24 24 24)",
+  "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQBQCdASoYACAAPt1WpU2opKOiN/qoARAbiWcAzjgbce2fi2kUPz1iTn4c+QRAwRiAAP6B1RXqNTeGL6mynFTQCcRhj0sbGosWF0lpwLcj0f/4P6+c/BZmJoG/gUmJ870lQLCkX6jeZLOI7MnZdRGQO4/A2Rqg62JY2yJg5x39keLIzNpJPyG5V2nWAAAA"
+ },
+ {
+  "id": "p19",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/2026s",
+  "iso": 50,
+  "date": "2025-09-08",
+  "width": 3942,
+  "height": 2955,
+  "ratio": 1.334,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(152 200 248)",
+  "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACwAwCdASoYABIAPulcqE2pJSOiN/VYASAdCWIAqPQPQvF0RS+GAAD930WBxHTZ4uXzv3Z2i6R6YidetLfF20h+vugIaQn0p//JdJuPLkqr43PF8SQd7Un2GnQAVPhj/OYgwjJ0FJVt9uMAAAA="
+ },
+ {
+  "id": "p20",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/2315s",
+  "iso": 50,
+  "date": "2025-09-08",
+  "width": 4096,
+  "height": 3069,
+  "ratio": 1.3346,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(248 248 248)",
+  "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwBACdASoYABIAPulcp02pJSOpN/VYASAdCWIAqPQPQu4biVZCEgXB1zwA8bFvvJ/LT1Ow7JwIa5iVs2b9hSnguNnSlREI0o2SfgmGpxdoSbKyYWofa8OWh0+cUHAE8GKqF8AA"
+ },
+ {
+  "id": "p21",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/6049s",
+  "iso": 50,
+  "date": "2025-09-08",
+  "width": 2918,
+  "height": 3894,
+  "ratio": 0.7494,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACQBQCdASoYACAAPtlepE2oJaOiN/qoAQAbCUAYmwsP9GosJoBPky/88ik2JyVt2qcYk4cFxAD+81T/K3ZaumgHXR8WStq/O7fUe+GR7L2/gCrsGdWpoMLUkcXwHfT+QJmbNbsOzMnkoROfrrggVSfJoLho/7HTvgR6J8FsdO/oqVLFCV+1Qs0EXcLLXO7UtEK8rmVCB5uDNlbRs1t6s97hwAA="
+ },
+ {
+  "id": "p22",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/1173s",
+  "iso": 50,
+  "date": "2025-09-08",
+  "width": 3072,
+  "height": 4093,
+  "ratio": 0.7505,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(120 184 200)",
+  "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADQBACdASoYACAAPulep02pJSOiN/VYASAdCWwAnTKACDAnrwquvHRSa4tut7RomAD+4IG72t2aS4NPi6EA5H/8jb0PWspWL1V9MJ4GG6E7VPsojobyWH5mr4BA+DgIkmiXsfucR55xs/vmkrF5o2Dunjlh7jkfOFFyI57p+PLLHJd6K7G6sAAA"
+ },
+ {
+  "id": "p23",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/886s",
+  "iso": 50,
+  "date": "2025-09-08",
+  "width": 4096,
+  "height": 3068,
+  "ratio": 1.3351,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(248 248 248)",
+  "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoYABIAPu1oqk+ppiOjMBgIATAdiUAWI+q4NTIbqM5xwEAA/sStZuNoUQfRXzg9HwZy9Wy++5aNwuwFSN+eREvrO2RrwFcYqLrwzAAA"
+ },
+ {
+  "id": "p24",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/603s",
+  "iso": 50,
+  "date": "2025-09-08",
+  "width": 4096,
+  "height": 3069,
+  "ratio": 1.3346,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(248 248 248)",
+  "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBQCdASoYABIAPtFYok2oJSMiN+gBABoJQBWABkexw2UDwVl6tCRGRyWBjcA24U+GAAD+bIq0DZKi+AlJGz80BpqMlgS5AAuuFusO6Ofvo9+iAnlvUvHaOURczLWc032Zve3FuAbKikK3EiKHTf2QTlKZq3y1i/RUmGUBp/lJcNLkAAA="
+ },
+ {
+  "id": "p25",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 46,
+  "aperture": "f/2.0",
+  "shutter": "1/120s",
+  "iso": 80,
+  "date": "2025-09-08",
+  "width": 3072,
+  "height": 4093,
+  "ratio": 0.7505,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(248 248 248)",
+  "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAwBQCdASoYACAAPu1qrlAppiQiqAqpMB2JYwDKAC/enLoZDGespIQPaSa3STk34SedAAD+EdM7W5oIjARYeB6FqoEZPfMWXWbGiOVI2GjgvOW4IaV+SVAi7dosSYVbPEdxOdUn2Q68gTG0u1P57eHf+jgml3dT2I40rZ85B0V9WjFO38r9AAAA"
+ },
+ {
+  "id": "p26",
+  "mark": "bar",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/360s",
+  "iso": 250,
+  "date": "2025-09-09",
+  "width": 3072,
+  "height": 4093,
+  "ratio": 0.7505,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAACQBQCdASoYACAAPu1srVCppiQiqAqpMB2JYwC06DUMrWUg1Fb7oVJYnMdPSAqj+yXBL604AAD9zCh6snZfCrnRRQE4nFDdPh2GHLYq6LdXi1RTFgKwKi/AP6D7d6oHDCLq6eSeKQIEKW6E6o14I304o0x8bBcDXjQSpajY4r7BLxMu1ZSgW3iyJNx8CH31JYaskL4wJ5fvMMAA"
+ },
+ {
+  "id": "p27",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/268s",
+  "iso": 50,
+  "width": 2707,
+  "height": 3608,
+  "ratio": 0.7503,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(40 40 40)",
+  "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAAAwBgCdASoYACAAPtleo02oJaMiN/qoAQAbCUAVhBsQRrD35KAz0lUe93DeTkLwBNxAW4YuNII4c4xQAP7llCeR81B2PpzGTZZb+9ZNuZ6ckss9hmY8jcAjzVJkzoLp0Dwu+XzIpigRVPIbr+vBKSTgdWGRAtK/ub+qijityeUA6WCMn0v5wA+2k+aUPbv/GZrIwe3bO0CcbvXhLYT/MG3tmbGa+EpMckzbSyrU/cuYAA=="
+ },
+ {
+  "id": "p28",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 46,
+  "aperture": "f/2.0",
+  "shutter": "1/60s",
+  "iso": 303,
+  "date": "2025-03-20",
+  "width": 2632,
+  "height": 1976,
+  "ratio": 1.332,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(200 168 104)",
+  "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwBACdASoYABIAPu1ur1IppiQiqAgBMB2JYgC7AAfLnd+bH15QqVhwSbWJSj1QAPyp31NFGKb+4GW7xHFgf247jlDuUzs/H8q7XUck5KHIieCLdsFlGn3n0tDV5cB/J++ADBPo/j1/SRsns7uEAAAA"
+ },
+ {
+  "id": "p29",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/120s",
+  "iso": 125,
+  "date": "2025-05-10",
+  "width": 3895,
+  "height": 2921,
+  "ratio": 1.3334,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(168 168 168)",
+  "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBQCdASoYABIAPu1qrVCppiQiqAqpMB2JZgCdMuz6SAhU8c/AoD7PtzJtJ81i4RafUMAA9j7pzZrFfW2flaz4ngXb/i1QrZui6ZDkzR9XmSNd6w7PleC7GmBYqYC6QUTL+2f3CLwba5qZVSQdxqUL2UGw3SvgjnbT90AAAAA="
+ },
+ {
+  "id": "p30",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/120s",
+  "iso": 500,
+  "date": "2025-06-19",
+  "width": 3602,
+  "height": 2704,
+  "ratio": 1.3321,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(136 56 56)",
+  "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAACQBQCdASoYABIAPu1kpk6ppaMiMBgMATAdiWgAnTMS/DiAAQSWFol0lUu4a0tRekB1M9bwIAD+jHAlmreFJ285w+2bFJnOJIu6r5iqvF78741bb0Kgi9MDDwl8oD8JZ+DzplE8jKL2saoU9Km2W+AcTW58olhI8/akGiM9t3NZt8kA7u+sFAAA"
+ },
+ {
+  "id": "p31",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/120s",
+  "iso": 250,
+  "date": "2025-06-30",
+  "gps": true,
+  "width": 3275,
+  "height": 2456,
+  "ratio": 1.3335,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(184 200 200)",
+  "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAABQBQCdASoYABIAPuVipU2pJaOiMAwBIByJagC7L22kABVqF0o69xz2pO/pYeC7Sc2sWwAA9kbNvJ51yHgnOrIMve2oh/406tR/klczDsHn3NxTpVQk4a3BeDQCwzHgnmWtxuczztZupH/LXR5VTb7L7v4PRfo3bMOpo9PT4+TwAA=="
+ },
+ {
+  "id": "p32",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/120s",
+  "iso": 320,
+  "date": "2025-09-03",
+  "width": 2892,
+  "height": 2169,
+  "ratio": 1.3333,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(200 136 8)",
+  "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAACwBACdASoYABIAPu1srFEppiQiqAqpMB2JZgCdMoSCmBAIHUwXXGgrzzJrrzHgAP6fEqM6sY6AE6rBGu4oRr42ZKw3/3BfX1FY3BPH67JSZfusRBpb4QxfmzaOAmeqNWb6vyPggGhNPLehoP5QFvmQ8pcwgzadaopkj90TipqdAd8Kqypm+1EKyVWnGYAA"
+ },
+ {
+  "id": "p33",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/24s",
+  "iso": 2000,
+  "width": 4096,
+  "height": 3072,
+  "ratio": 1.3333,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADwBACdASoYABIAPu1ur1IppiQiqAgBMB2JZwDE2A/PmTd+lpC91mEPq0jbbuB1D8AA/uza1Ue4qhvhqk0GDBfallHH5Je7hpUazjvKFhGogZrIlRf+D1sRTPWzpEIf/CJWZH6D7Z85K3LdaMk/LE9gtCs3gdKfHYbqpe1UZSKpLGXoSAA="
+ },
+ {
+  "id": "p34",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/659s",
+  "iso": 50,
+  "date": "2025-03-20",
+  "gps": true,
+  "width": 3905,
+  "height": 2929,
+  "ratio": 1.3332,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACQBACdASoYABIAPulgo02pJaMiMAwBIB0JYgC/OB6VIOtqlSpxCqHnAKkhjgAA/p8Ndeo8zVfWtD7pkH2upv0Q3aBu8t5Xag+UENbzwUc+kubbC5VsuV4R5x4BMUrOihuNRdf8EmX1KFStJ/mBeGPcBBmgAA=="
+ },
+ {
+  "id": "p35",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 23,
+  "aperture": "f/1.8",
+  "shutter": "1/60s",
+  "iso": 64,
+  "width": 2813,
+  "height": 3750,
+  "ratio": 0.7501,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABwBQCdASoYACAAPu1mq0+ppaOiMBgIATAdiWgAsQzICVI+aC6AKVYSxIUmYKVN9A25zlMAAP79nBeiyApf0B/CYalYxemE1rV6gCfUcUIFJbsdXF4enk6NNJtZYzND3OdUwBA+hX9QCvmHOWqXguuE2b63Ee1aqDQsMGPQUbTqEwO4N0DiFGzclCq8vKU6M/SE1AAA"
+ },
+ {
+  "id": "p36",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 46,
+  "aperture": "f/1.63",
+  "shutter": "1/60s",
+  "iso": 181,
+  "date": "2025-03-13",
+  "gps": true,
+  "width": 3057,
+  "height": 2293,
+  "ratio": 1.3332,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAQBQCdASoYABIAPu1iq1AppSOisBgIATAdiUAXZmX4NUAt28eLfmpOMvic79BHwMAAAP7yoG9ux3Xwek/8XSyTqzY8zwmIgJMsVmaU5xvd/CS6Lywl0AQLfNt8IyvLePH37WHMuey83szJENp9rHz2EtKKrFcBKwF6ugAA"
+ },
+ {
+  "id": "p37",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 173,
+  "aperture": "f/2.5",
+  "shutter": "1/120s",
+  "iso": 100,
+  "width": 3377,
+  "height": 2533,
+  "ratio": 1.3332,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQBQCdASoYABIAPu1qsFAppaSiqAqpMB2JYwDA3BEdGe1DrKSI+pCNNmqPV0+bNIAUtbyWAAD+6/ec6YYWkbj1Of0ZmvOS4Hauhmlrsai0qzVMTWlRWJll0UwzoEs1MK2tZTeHPkQCsiBAAAA="
+ },
+ {
+  "id": "p38",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/120s",
+  "iso": 500,
+  "width": 2371,
+  "height": 3163,
+  "ratio": 0.7496,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(24 120 152)",
+  "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQBACdASoYACAAPuFUpU2opKOyN/qoAkAcCWgAuzLQgpgdaT4nozVY/ck5GvVzQAD+6iDW6XVP3TpxJLHtmtJdXjtI9pCVv6khlRgRMrm/dSGkuea6CfOxMCZr5yG7w3gtgQGuPcC2Bkp4xe5Y5GX1Nv7Cr4OwlbvQhWNf9YWAc/nd0ygAAA=="
+ },
+ {
+  "id": "p39",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/498s",
+  "iso": 50,
+  "width": 3225,
+  "height": 2417,
+  "ratio": 1.3343,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(72 136 168)",
+  "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBQCdASoYABIAPu1orlCppaQiqAqpMB2JZgCdMw44RAAANHSla3KNMT+9sTAyS07Z1AAA/i3XmbO71Tr/MOY/PabgGfNQ2h6mLRW32hejX+7h86KShMEWkRH8xhKPGTd4Wikt6Qzgf3kGz0/sjwZ2jm4ia0Pf243rr/htkAA="
+ },
+ {
+  "id": "p40",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 23,
+  "aperture": "f/1.63",
+  "shutter": "1/34s",
+  "iso": 800,
+  "width": 1928,
+  "height": 2572,
+  "ratio": 0.7496,
+  "sizes": [
+   640,
+   1280,
+   1928
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADwBACdASoYACAAPulipE2pJaMiMAwBIB0JYwDL4BoIALkzrknHGH539Au9b4tvQAAA/ezG+0gaE0XeFe1tfbrrziUvO9yb8HcGsITK0VCpYCXp9rwzvdR+F+pyySpbXuOUXqV6E6MqibGVaC/ZdCuyBi8oqPiAAAA="
+ },
+ {
+  "id": "p41",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/120s",
+  "iso": 400,
+  "width": 2455,
+  "height": 3275,
+  "ratio": 0.7496,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAACwBQCdASoYACAAPu1mp02ppiOiMBgMATAdiWYAnTOOyJQUtsHxiRTqglzn9ykh7CyYBJehRAAA/vbm1+RUdz3O3e3aGavB6GHigHhM4V58e7gu0VhFlvM3uH5fBYoEtQQnsVWoxZc091YGEHfsKHw1J+tx1vG/ub9Ke3WsEW6PdcanwTlzL8KJOIBz/2Jhu47p5htyvOr3KVJ7dsW3BLvc8wglavaDDYseaCSLGmlgAA=="
+ },
+ {
+  "id": "p42",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/120s",
+  "iso": 640,
+  "width": 4096,
+  "height": 3072,
+  "ratio": 1.3333,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwBACdASoYABIAPuVgpk2pJaOiMAwBIByJZQAAW+kQWF0cO9dpv/LrTAAA/vKoE/yz2SCFcCmwwhVa8JDG6yU2ufMFfuXm+WvkzqPmyPENwPzX+q2le8b7jKxvRgkFaAAAAA=="
+ },
+ {
+  "id": "p43",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/146s",
+  "iso": 50,
+  "width": 4096,
+  "height": 3072,
+  "ratio": 1.3333,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQBACdASoYABIAPu1iqE2ppaOiMAgBMB2JZwAAN3ze9yo8culFwo4SoAD+71xitIB6Fi0wTzsJ7TfWiuXbWj1LXl3tE0Emzu7ontAA"
+ },
+ {
+  "id": "p44",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/17s",
+  "iso": 2000,
+  "width": 2325,
+  "height": 3100,
+  "ratio": 0.75,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAADQBQCdASoYACAAPu1wsFKppiSiqAgBMB2JbACdMoR8JaAAL8vQsp6JvXdz1qP68o/fHvL0otEgAP7y9Hk5i+l/vS3CMgeVijn96He6Mi4/Pf4/+dlQ2jipaZC3XgDeO5rP5Ap/JwkAhJfF8NYQ97E4ctHVqXtVztRpB5z7ort+F1qUaYkJ9FDT/sM3jPefYt64H71n2/SYh6//A6Fia7qorSFxcgAA"
+ },
+ {
+  "id": "p45",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/120s",
+  "iso": 400,
+  "width": 2058,
+  "height": 2746,
+  "ratio": 0.7495,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(104 104 88)",
+  "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAQBQCdASoYACAAPu1qqk8ppiOiMBgIATAdiUATpygnuAJEufUGjyPkRJXySofRLQQAAPnqJQLIpeE3Ge3+6wKl5azPLGLhlV9yjJOtWC0Trq6BlW40AQSxYNTDcQab+E+sRkv0RqucOU/jP5T6lAjaSdNkzPzrPuCUl+N7HdsPlVsiXJW7FWKaTkCDpQ0gQjnKxrGgAAA="
+ },
+ {
+  "id": "p46",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/5873s",
+  "iso": 50,
+  "width": 2976,
+  "height": 3967,
+  "ratio": 0.7502,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(24 24 8)",
+  "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADQBACdASoYACAAPu1mqk8ppaOiKA1RMB2JbACdAEXgDIDVKgVF1HHRQUnkePLa2AD+76aqQ+gOrgcc8qYP5FrIdaTBkBbjByAq4UqMtdaeLVnBGV7oa79Uh/JZzDCjIezEumd6RlnfTHyggnlxxOykSmWu8FGIGURL74M4CLIFckHHsQE7BoFAAAA="
+ },
+ {
+  "id": "p47",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 46,
+  "aperture": "f/2.0",
+  "shutter": "1/586s",
+  "iso": 50,
+  "width": 2042,
+  "height": 2722,
+  "ratio": 0.7502,
+  "sizes": [
+   640,
+   1280,
+   2042
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBQCdASoYACAAPu1wr1IppiQiqAgBMB2JaQAA9Z+UoSZTSCHitPwVz4ats0xn02vAAP7pFtkm/BotwcVzDPCxptBkbpLG2r6PNaqYpEN0ohZlOTCSbnYre3UpA8SLk6MtJwWVkJRLPiuPEPtoLkHi/1j4Fb+ioAAAAA=="
+ },
+ {
+  "id": "p48",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.8",
+  "shutter": "1/120s",
+  "iso": 200,
+  "width": 4096,
+  "height": 3072,
+  "ratio": 1.3333,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAwBQCdASoYABIAPu1ur1IppiQiqAgBMB2JZACdMuu8qBnOMNiT/baDAl9y5/KH/dohcAD+0PrkJuFa3tJ/BhBr3CA9WuiJ6tQf5p9aaoBKhDl/L/YPF6L2VxbPsFr4juGhhXUEX/0oZdkvIzVa57+nCVCP/+z3suba48C7i2RLWeFdtCQp5Csw7y09QNzoApL8fDWznbOUil0AAAA="
+ },
+ {
+  "id": "p49",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/2.5",
+  "shutter": "1/2182s",
+  "iso": 50,
+  "width": 3380,
+  "height": 2535,
+  "ratio": 1.3333,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(152 168 200)",
+  "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQBACdASoYABIAPt1apU2opSOiN/qoARAbiUAXZmQwaFQyuLxizxMXxghwAP5Qy2hzAZT9fnDNDeJdW60kwQpRApbQSKLmKI0da5JwigAZSWQaD6wUzqDUAAA="
+ },
+ {
+  "id": "p50",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 75,
+  "aperture": "f/1.25",
+  "shutter": "1/120s",
+  "iso": 80,
+  "width": 3072,
+  "height": 4095,
+  "ratio": 0.7502,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(200 168 152)",
+  "lqip": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAABwBQCdASoYACAAPu1qrVCppaQiqAqpMB2JZACdMt8BWvaZQtrtWreBxuZpXMO2Oi2wNeDIAP7uoYlEiG73tmJTb0wZ8cfA3yN5rwBmtUU+IYF6JGxdFvGDDHMi8jYMEm7v6eX336lJgTmxtY1ykNPW4ppmecpPOfqSGhaf1aAt1UlNmM1HpLWdkEFohMNi3lRimVUN5RYjy6C9UYQYxIX/SQbY0E5me/t//NyFQaViM9Gu74rVyw48keCYAA=="
+ },
+ {
+  "id": "p51",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 290,
+  "aperture": "f/2.5",
+  "shutter": "1/7201s",
+  "iso": 50,
+  "width": 3883,
+  "height": 2912,
+  "ratio": 1.3334,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABwBACdASoYABIAPu1kqk2ppaQiMAgBMB2JYgC06CHhiABdCejQb+GMFAJnaAD+9Cf9lbOc7aDWsrjl3lBoNNsZPg1la672y4wfFDld/uLTHrHGQrGnIF6XBYcnpw0AkpKNIMNKczoAAA=="
+ },
+ {
+  "id": "p52",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 23,
+  "aperture": "f/2.0",
+  "shutter": "1/120s",
+  "iso": 250,
+  "width": 3072,
+  "height": 4095,
+  "ratio": 0.7502,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAADQBQCdASoYACAAPu1kqE2ppaOiMAgBMB2JQBWGaFhWgY3w3sh1L13uavuT0FfSi6jQ3y4t/OgAAP7Sg9keXQib+GDJR7hMXvRfYcvMdZkmmrpbr74cUy3V+X8pT3pnVWykoPTLIzxQAmZE2Y/YfiIyynwWRNA+BPMe4Ax0t+488as6sA00gGYm7EfpwygVtTxO5RnBBvBh0sAiVXNAsS8QSMAAAA=="
+ },
+ {
+  "id": "p53",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/1.8",
+  "shutter": "1/120s",
+  "iso": 125,
+  "date": "2026-09-25",
+  "width": 2905,
+  "height": 3869,
+  "ratio": 0.7508,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(8 8 8)",
+  "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAADwBQCdASoYACAAPu1mq0+ppSOiMBgIATAdiWwAnTKDMLTdU0yZoVfsmfkMQ+OzR377i0DvCxxNAAD+/M5mJ34PATV4rbvNLEgnaaEsCfBXZZzxun6Nk9d7ElJTKmhwgnci2ia3mMzBuIqB1qXtCOJUVlbvA8iU19RxgUO580dNu0ybhBRxpRCevhhlbsNt1ntfanG8KYgKWe5Vp6e+MCn0DqZP7K5fljIVLOgfcKuAAA=="
+ },
+ {
+  "id": "p54",
+  "mark": "overlay",
+  "camera": "Xiaomi 14 Ultra",
+  "focal": 120,
+  "aperture": "f/1.8",
+  "shutter": "1/120s",
+  "iso": 125,
+  "width": 2825,
+  "height": 3765,
+  "ratio": 0.7503,
+  "sizes": [
+   640,
+   1280,
+   2048
+  ],
+  "color": "rgb(24 24 24)",
+  "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAADwBQCdASoYACAAPu1cqk4ppKQiMBgMATAdiWoAnTKEgrrMAFVCx85heiOs6hwmj+9zzhsOtHQ8gAD+v26F/Nb42kYrc5zgHS+1mcdA9sMG701vJRpkz2+hBO8q0VvtZuCLPK9veMqJH+49bwu73MjdAu639tANLmKI6NShNzhnNRBwinLPpsbxyYSj69TIdJrx61rPEz/BY8ehwhBzTyJPmbUeOm83q/xLiOyLwAAAAA=="
+ }
+]

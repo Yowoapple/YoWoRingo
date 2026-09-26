@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "photos": "node scripts/photos.mjs",
+    "portrait": "node scripts/portrait.mjs",
+    "fonts": "node scripts/fonts.mjs"
   },
   "devDependencies": {
     "opencc-js": "^1.4.2",
