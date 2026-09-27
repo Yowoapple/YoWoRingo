@@ -1,5 +1,5 @@
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { setLang } from './i18n.js';
+import { prepareLang, setLang } from './i18n.js';
 import { reducedMotion } from '../utils/device.js';
 
 const LANGS = [
@@ -58,11 +58,11 @@ async function apply(save) {
       localStorage.setItem('lang', lang.code);
     } catch {}
   }
+  await prepareLang(lang.code);
   const anchor = captureAnchor();
   const update = async () => {
     paint();
     await setLang(lang.code);
-    await document.fonts.ready;
     ScrollTrigger.refresh();
     restoreAnchor(anchor);
     ScrollTrigger.update();

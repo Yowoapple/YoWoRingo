@@ -5,9 +5,22 @@ const loaders = {
   'zh-Hans': () => import('../../i18n/zh-Hans.json')
 };
 
+const FAMILY = { 'zh-Hant': 'HarmonyOS Sans TC', 'zh-Hans': 'HarmonyOS Sans SC' };
+const cache = {};
+
 let lang = 'en';
 let dict = {};
 const originalTitle = document.title;
+
+const withTimeout = (p, ms) => Promise.race([p, new Promise(r => setTimeout(r, ms))]);
+
+export async function prepareLang(code) {
+  if (!loaders[code]) return;
+  cache[code] ??= (await loaders[code]()).default;
+  const sample = [...new Set(Object.values(cache[code]).join(''))].filter(c => c.codePointAt(0) > 0x2e80).join('');
+  await withTimeout(Promise.all([400, 700].map(w => document.fonts.load(`${w} 1em "${FAMILY[code]}"`, sample))).catch(() => {}), 3000);
+}
+
 const textOrigin = new WeakMap();
 const htmlOrigin = new WeakMap();
 const attrOrigin = new WeakMap();
@@ -97,7 +110,8 @@ export function translateTree(root = document.body) {
 
 export async function setLang(next) {
   if (next !== 'en' && loaders[next]) {
-    dict = (await loaders[next]()).default;
+    cache[next] ??= (await loaders[next]()).default;
+    dict = cache[next];
   } else {
     dict = {};
     next = 'en';
