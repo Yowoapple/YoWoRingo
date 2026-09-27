@@ -1,5 +1,5 @@
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { prepareLang, setLang } from './i18n.js';
+import { loadDict, prepareLang, setLang } from './i18n.js';
 import { reducedMotion } from '../utils/device.js';
 
 const LANGS = [
@@ -18,6 +18,16 @@ let busy = false;
 
 const FIREFOX = CSS.supports('-moz-appearance', 'none');
 const wait = ms => new Promise(r => setTimeout(r, ms));
+const nextCode = () => LANGS[(index + 1) % LANGS.length].code;
+const idle = fn => ('requestIdleCallback' in window ? requestIdleCallback(fn, { timeout: 4000 }) : setTimeout(fn, 1500));
+
+function prefetchNext() {
+  idle(() => loadDict(nextCode()).catch(() => {}));
+}
+
+function warmUp() {
+  if (!busy) prepareLang(nextCode()).catch(() => {});
+}
 
 function detect() {
   try {
@@ -87,6 +97,7 @@ async function apply(save) {
     root.classList.remove('is-lang-switch');
   }
   busy = false;
+  prefetchNext();
 }
 
 export function initLang(options = {}) {
@@ -95,6 +106,9 @@ export function initLang(options = {}) {
   label = btn?.querySelector('[data-lang-label]');
   index = Math.max(0, LANGS.findIndex(l => l.code === detect()));
   paint();
+  ['pointerenter', 'focus', 'pointerdown'].forEach(type => btn?.addEventListener(type, warmUp));
+  if (document.readyState === 'complete') prefetchNext();
+  else window.addEventListener('load', prefetchNext, { once: true });
   btn?.addEventListener('click', () => {
     if (busy) return;
     index = (index + 1) % LANGS.length;

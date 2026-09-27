@@ -14,11 +14,25 @@ const originalTitle = document.title;
 
 const withTimeout = (p, ms) => Promise.race([p, new Promise(r => setTimeout(r, ms))]);
 
+export function loadDict(code) {
+  if (!loaders[code]) return Promise.resolve({});
+  cache[code] ??= loaders[code]().then(m => m.default).catch(err => {
+    delete cache[code];
+    throw err;
+  });
+  return cache[code];
+}
+
+const fontJobs = {};
+
 export async function prepareLang(code) {
   if (!loaders[code]) return;
-  cache[code] ??= (await loaders[code]()).default;
-  const sample = [...new Set(Object.values(cache[code]).join(''))].filter(c => c.codePointAt(0) > 0x2e80).join('');
-  await withTimeout(Promise.all([400, 700].map(w => document.fonts.load(`${w} 1em "${FAMILY[code]}"`, sample))).catch(() => {}), 3000);
+  const data = await loadDict(code);
+  if (!fontJobs[code]) {
+    const sample = [...new Set(Object.values(data).join(''))].filter(c => c.codePointAt(0) > 0x2e80).join('');
+    fontJobs[code] = Promise.all([400, 700].map(w => document.fonts.load(`${w} 1em "${FAMILY[code]}"`, sample))).catch(() => {});
+  }
+  await withTimeout(fontJobs[code], 3000);
 }
 
 const textOrigin = new WeakMap();
@@ -110,8 +124,7 @@ export function translateTree(root = document.body) {
 
 export async function setLang(next) {
   if (next !== 'en' && loaders[next]) {
-    cache[next] ??= (await loaders[next]()).default;
-    dict = cache[next];
+    dict = await loadDict(next);
   } else {
     dict = {};
     next = 'en';
