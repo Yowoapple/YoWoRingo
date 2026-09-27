@@ -10,9 +10,11 @@
     "photos": "node scripts/photos.mjs",
     "portrait": "node scripts/portrait.mjs",
     "fonts": "node scripts/fonts.mjs",
-    "works": "node scripts/works.mjs"
+    "works": "node scripts/works.mjs",
+    "brand": "node scripts/brand.mjs"
   },
   "devDependencies": {
+    "fontkit": "^2.0.4",
     "opencc-js": "^1.4.2",
     "sharp": "^0.35.4",
     "subset-font": "^2.9.0",
