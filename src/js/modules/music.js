@@ -34,6 +34,8 @@ function killSession() {
 function effects(ctx, musicBus) {
   if (fx) return fx;
   const bus = ctx.createGain();
+  bus.gain.setValueAtTime(0.0001, ctx.currentTime);
+  bus.gain.exponentialRampToValueAtTime(1, ctx.currentTime + 1.4);
   bus.connect(musicBus);
   const delay = ctx.createDelay(1);
   delay.delayTime.value = STEP * 3;
@@ -187,6 +189,14 @@ export const music = {
   toggle() {
     if (playing) this.pause();
     else this.play();
+  },
+  fadeOut(seconds = 0.25) {
+    if (!fx) return;
+    fx.out.gain.cancelScheduledValues(audio.context.currentTime);
+    fx.out.gain.setTargetAtTime(0.0001, audio.context.currentTime, seconds / 3);
+  },
+  snapshot() {
+    return { playing, pos: this.position };
   },
   seek(fraction) {
     const target = Math.floor(Math.min(0.999, Math.max(0, fraction)) * STEPS);

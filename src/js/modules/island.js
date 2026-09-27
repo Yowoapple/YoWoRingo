@@ -98,6 +98,7 @@ export function initIsland() {
   });
 
   music.onChange(sync);
+  sync();
 
   return {
     set,

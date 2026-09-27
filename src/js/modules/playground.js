@@ -5,6 +5,7 @@ import { clamp } from '../utils/device.js';
 const { Engine, Bodies, Body, Composite, Constraint, Events } = Matter;
 
 export function createPlayground(stage, options = {}) {
+  const navigate = href => (options.onNavigate || (u => (location.href = u)))(new URL(href, location.href).href);
   const items = [...stage.querySelectorAll('[data-body]')].filter(el => getComputedStyle(el).display !== 'none');
   const engine = Engine.create({ enableSleeping: true });
   engine.gravity.y = 1;
@@ -150,13 +151,13 @@ export function createPlayground(stage, options = {}) {
       el.classList.remove('is-grabbed');
       const tap = drag.moved < 6 && performance.now() - drag.time < 350;
       drag = null;
-      if (tap && el.dataset.href) window.location.href = el.dataset.href;
+      if (tap && el.dataset.href) navigate(el.dataset.href);
     };
     el.addEventListener('pointerup', release);
     el.addEventListener('pointercancel', release);
     el.addEventListener('click', e => e.preventDefault());
     el.addEventListener('keydown', e => {
-      if ((e.key === 'Enter' || e.key === ' ') && el.dataset.href) window.location.href = el.dataset.href;
+      if ((e.key === 'Enter' || e.key === ' ') && el.dataset.href) navigate(el.dataset.href);
     });
   }
 

@@ -1,5 +1,5 @@
 import { lenis } from '../main.js';
-import { initSite, go } from '../site.js';
+import { initSite, go, leave } from '../site.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createPixelHero } from '../modules/pixel-hero.js';
@@ -76,7 +76,7 @@ window.addEventListener('pointermove', e => {
 document.documentElement.addEventListener('pointerleave', () => hero.setPointer(0, 0, false));
 window.addEventListener('blur', () => hero.setPointer(0, 0, false));
 
-const playground = createPlayground(document.querySelector('[data-stage]'));
+const playground = createPlayground(document.querySelector('[data-stage]'), { onNavigate: leave });
 
 const tiltBtn = document.querySelector('[data-tilt]');
 if (tiltBtn && coarsePointer() && 'DeviceOrientationEvent' in window) {

@@ -5,6 +5,7 @@ import { toast } from './modules/toast.js';
 import { audio } from './modules/audio.js';
 import { music } from './modules/music.js';
 import { asset } from './utils/device.js';
+import { store } from './utils/store.js';
 
 const env = import.meta.env;
 
@@ -42,32 +43,66 @@ function kuromi() {
   const on = root.dataset.mode !== 'kuromi';
   if (on) root.dataset.mode = 'kuromi';
   else delete root.dataset.mode;
-  try {
-    sessionStorage.setItem('mode', on ? 'kuromi' : '');
-  } catch {}
+  store.set('mode', on ? 'kuromi' : '');
   toast(on ? 'Kuromi mode. You found it.' : 'Back to ultramarine.', { type: on ? 'success' : 'info' });
 }
 
-function restorePreferences() {
-  try {
-    if (sessionStorage.getItem('mode') === 'kuromi') document.documentElement.dataset.mode = 'kuromi';
-    if (sessionStorage.getItem('sound') === 'on') {
-      const resume = () => {
-        audio.enable();
-        window.removeEventListener('pointerdown', resume);
-        window.removeEventListener('keydown', resume);
-      };
-      window.addEventListener('pointerdown', resume, { once: true });
-      window.addEventListener('keydown', resume, { once: true });
+function restoreSession() {
+  if (store.get('mode') === 'kuromi') document.documentElement.dataset.mode = 'kuromi';
+  window.addEventListener('pagehide', () => store.set('music', JSON.stringify(music.snapshot())));
+
+  if (store.get('sound') !== 'on') return;
+  const saved = store.json('music');
+  let done = false;
+  const attempt = async () => {
+    if (done) return true;
+    await audio.enable();
+    if (audio.context?.state !== 'running') return false;
+    done = true;
+    if (saved?.playing && !music.playing) {
+      music.seek(saved.pos / music.duration);
+      music.play();
     }
-  } catch {}
+    return true;
+  };
+  attempt().then(ok => {
+    if (ok) return;
+    const onGesture = () => {
+      attempt();
+      window.removeEventListener('pointerdown', onGesture);
+      window.removeEventListener('keydown', onGesture);
+    };
+    window.addEventListener('pointerdown', onGesture);
+    window.addEventListener('keydown', onGesture);
+  });
+}
+
+export function leave(href) {
+  if (!music.playing) return void (location.href = href);
+  music.fadeOut(0.3);
+  store.set('music', JSON.stringify(music.snapshot()));
+  setTimeout(() => (location.href = href), 280);
+}
+
+function fadeOnLeave() {
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (a.target === '_blank' || a.hasAttribute('download')) return;
+    const url = new URL(a.href, location.href);
+    if (url.origin !== location.origin || (url.pathname === location.pathname && url.hash)) return;
+    if (!music.playing) return;
+    e.preventDefault();
+    leave(url.href);
+  });
 }
 
 export function initSite({ home = false, commands = [] } = {}) {
-  restorePreferences();
+  restoreSession();
+  fadeOnLeave();
   const island = initIsland();
-  const nav = hash => (home ? go(hash || 0) : (location.href = asset('') + (hash || '')));
-  const page = path => () => (location.href = asset(path));
+  const nav = hash => (home ? go(hash || 0) : leave(asset('') + (hash || '')));
+  const page = path => () => leave(asset(path));
 
   document.querySelectorAll('[data-top]').forEach(a => a.addEventListener('click', e => {
     e.preventDefault();
