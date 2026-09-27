@@ -4,13 +4,63 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0b0c">
-  <title>Galgame — YoWoRingo</title>
-  <script type="module" src="/src/js/main.js"></script>
+  <meta name="description" content="100 Days (working title) — a dark narrative game in development by YoWoRingo (%VITE_LEGAL_NAME%).">
+  <meta name="author" content="%VITE_LEGAL_NAME%">
+  <title>100 Days — YoWoRingo</title>
+  <script type="module" src="/src/js/pages/work-galgame.js"></script>
 </head>
-<body>
-  <main class="shell">
-    <p class="label">Work 04 / In Development</p>
-    <h1 class="shell__title">Galgame</h1>
+<body data-page="work" data-island="100 Days">
+  <main id="top">
+    <section class="g-hero" data-island="01 — 100 Days" data-g-hero>
+      <div class="g-hero__inner">
+        <p class="label">(Work 04) Galgame / In development</p>
+        <p class="g-day" aria-hidden="true"><span class="label">Day</span><span class="g-day__num" data-day>001</span><span class="g-day__of">/ 100</span></p>
+        <h1 class="g-title">100 Days<small class="label">Working title</small></h1>
+        <div class="g-ticks" data-ticks aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="w-block" data-island="02 — Premise">
+      <p class="label">Premise</p>
+      <h2 class="w-quote" data-split-lines><span>Two siblings.</span><span>A debt they never made.</span><span>One hundred days.</span></h2>
+      <div class="w-prose">
+        <p>Their parents' problems become theirs. A brother and a sister are left with a debt, and one hundred days to pay it back.</p>
+        <p>It is a dark story, and it is told through numbers as much as words: every value in the game's systems and every line of its script is tuned by hand, so that each day feels heavier than the last.</p>
+      </div>
+    </section>
+
+    <section class="w-block" data-island="03 — Roles">
+      <p class="label">Who does what</p>
+      <div class="g-roles">
+        <div class="g-roles__col" data-reveal>
+          <span class="label">Me</span>
+          <ul><li>Planning</li><li>Programming</li><li>Writing</li><li>Systems and balance</li></ul>
+        </div>
+        <div class="g-roles__col g-roles__col--muted" data-reveal>
+          <span class="label">Collaborators</span>
+          <ul><li>Art</li><li>Music</li><li>Sound</li></ul>
+        </div>
+        <div class="g-roles__col g-roles__col--muted" data-reveal>
+          <span class="label">Engine</span>
+          <ul><li>Unity</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-block" data-island="04 — Key Art">
+      <p class="label">Key art</p>
+      <div class="g-pending">
+        <span class="label">[ Key art pending ]</span>
+        <p>Screens and art will appear here as the game takes shape.</p>
+      </div>
+    </section>
+
+    <section class="w-next" data-island="05 — Next">
+      <a class="w-next__work" href="../twerg/">
+        <span class="label">Back to work / 01</span>
+        <span class="w-next__title">TWERG</span>
+      </a>
+    </section>
   </main>
 </body>
 </html>

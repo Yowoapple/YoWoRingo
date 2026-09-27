@@ -4,13 +4,93 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0b0c">
-  <title>Directivity-Aware Intensity — YoWoRingo</title>
-  <script type="module" src="/src/js/main.js"></script>
+  <meta name="description" content="Beyond the Point — a directivity-aware approach to earthquake intensity estimation, by YoWoRingo (%VITE_LEGAL_NAME%).">
+  <meta name="author" content="%VITE_LEGAL_NAME%">
+  <title>Beyond the Point — YoWoRingo</title>
+  <script type="module" src="/src/js/pages/work-plum.js"></script>
 </head>
-<body>
-  <main class="shell">
-    <p class="label">Work 02</p>
-    <h1 class="shell__title">Intensity</h1>
+<body data-page="work" data-island="Beyond the Point">
+  <main id="top">
+    <section class="w-hero" data-island="01 — Beyond the Point">
+      <p class="label w-hero__kicker">(Work 02) Research / Method</p>
+      <h1 class="w-hero__title w-hero__title--long" data-split-lines><span>Beyond</span><span>the Point</span></h1>
+      <p class="w-hero__sub">Estimating earthquake shaking when the rupture has a direction.</p>
+    </section>
+
+    <section class="w-block" data-island="02 — The Problem">
+      <p class="label">The problem</p>
+      <h2 class="w-quote" data-split-lines><span>A point</span><span>is not a fault.</span></h2>
+      <div class="w-prose">
+        <p>Early warning systems usually treat an earthquake as a single point, so predicted shaking fades the same way in every direction. That works for small events.</p>
+        <p>Large, shallow earthquakes are different. The rupture <strong>travels</strong> along the fault, and it throws stronger shaking ahead of itself. Places in that direction can feel far more than a point-source estimate says. In early warning, that is the worst kind of error: <strong>telling people it is weaker than it is.</strong></p>
+      </div>
+    </section>
+
+    <section class="w-block" data-island="03 — The Method">
+      <p class="label">The method</p>
+      <ol class="p-steps">
+        <li data-reveal><span class="label">01 / Listen</span><h3>Watch the shaking fade</h3><p>As stations report in, compare how quickly peak ground acceleration drops off toward the east, south, west and north.</p></li>
+        <li data-reveal><span class="label">02 / Infer</span><h3>Find the direction</h3><p>If shaking fades unevenly, the rupture is moving. The imbalance points the way it is travelling.</p></li>
+        <li data-reveal><span class="label">03 / Correct</span><h3>Raise what lies ahead</h3><p>Areas in front of the rupture get their estimated intensity raised. Areas behind it are left alone.</p></li>
+        <li data-reveal><span class="label">04 / Update</span><h3>Keep listening</h3><p>The estimate is not a one-time calculation. It moves up and down every second as new data arrives, and is only pushed to people once it makes sense.</p></li>
+      </ol>
+      <p class="p-cite label">Directivity correction informed by Jan et al. (2018). Station data from the P-Alert network.</p>
+    </section>
+
+    <section class="p-demo" data-island="04 — Replay">
+      <header class="p-demo__head">
+        <div>
+          <p class="label">Replay / Retrospective simulation</p>
+          <h2 class="section-title" data-split-lines><span>Watch it</span><span>correct itself.</span></h2>
+        </div>
+        <div class="tabs p-tabs" data-events>
+          <div class="tabs__list" role="tablist" aria-label="Earthquake"></div>
+        </div>
+      </header>
+
+      <div class="p-demo__body">
+        <figure class="p-map" data-map>
+          <div class="p-map__labels" aria-hidden="true"><span class="label">Point source</span><span class="label p-map__labels-v2">With direction</span></div>
+          <div class="p-map__stage" data-stage></div>
+          <button class="p-map__handle" type="button" data-handle aria-label="Drag to compare"><span></span></button>
+          <figcaption class="p-legend" data-legend></figcaption>
+        </figure>
+
+        <aside class="p-side">
+          <div class="p-event" data-event-info></div>
+          <div class="p-time">
+            <div class="p-time__row">
+              <button class="player__play" type="button" data-demo-play aria-label="Play replay" aria-pressed="false"><span class="player__icon" aria-hidden="true"></span></button>
+              <div class="scrubber">
+                <input class="range" type="range" min="0" max="600" value="0" data-demo-time aria-label="Seconds after origin time">
+                <div class="scrubber__times"><span class="label" data-demo-clock>T + 0.0 s</span><span class="label">T + 60 s</span></div>
+              </div>
+            </div>
+            <p class="p-phase" data-phase></p>
+          </div>
+          <div class="p-chart" data-chart></div>
+          <p class="p-stat label" data-stat></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="w-block" data-island="05 — Prototype">
+      <p class="label">Early prototype</p>
+      <div class="p-video">
+        <video controls muted playsinline preload="none" data-video></video>
+        <button class="p-video__cover" type="button" data-video-cover><span class="label">Play the prototype recording</span></button>
+      </div>
+      <div class="w-prose">
+        <p>A low-resolution recording of the first working version. The method is still research: it has not been deployed, and the replay above is a simulation built from historical data, not a live system.</p>
+      </div>
+    </section>
+
+    <section class="w-next" data-island="06 — Next">
+      <a class="w-next__work" href="../../photography/">
+        <span class="label">Next work / 03</span>
+        <span class="w-next__title">Focal Length</span>
+      </a>
+    </section>
   </main>
 </body>
 </html>
