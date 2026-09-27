@@ -61,6 +61,11 @@
   font-size: clamp(1.6rem, 3vw, 3rem);
 }
 
+:root:is(:lang(zh-Hant), :lang(zh-Hans)) .work--pending .work__title {
+  color: var(--mute);
+  -webkit-text-stroke: 0;
+}
+
 :root:is(:lang(zh-Hant), :lang(zh-Hans)) .label {
   letter-spacing: 0.08em;
 }

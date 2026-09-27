@@ -225,12 +225,14 @@
   z-index: -1;
   background: var(--signal);
   clip-path: inset(50% 0 50% 0);
-  transition: clip-path var(--dur) var(--ease-out);
+  opacity: 0;
+  transition: clip-path var(--dur) var(--ease-out), opacity 0.2s ease;
 }
 
 .work__link:hover::before,
 .work__link:focus-visible::before {
   clip-path: inset(0 0 0 0);
+  opacity: 1;
 }
 
 .work__title {
