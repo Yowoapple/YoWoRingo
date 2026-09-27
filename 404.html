@@ -9,14 +9,19 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="robots" content="noindex">
-  <title>404 — YoWoRingo</title>
-  <script type="module" src="/src/js/main.js"></script>
+  <title>No Ringo here — YoWoRingo</title>
+  <script type="module" src="/src/js/pages/not-found.js"></script>
 </head>
-<body>
-  <main class="shell">
+<body data-page="404" data-island="404">
+  <main class="nf" id="top">
     <p class="label">404 / Out of Frame</p>
-    <h1 class="shell__title">No Ringo here.</h1>
-    <a class="label" href="/YoWoRingo/">Back to home</a>
+    <p class="nf__code" aria-hidden="true" data-nf-code>404</p>
+    <h1 class="nf__title">No Ringo here.</h1>
+    <p class="nf__lead">This page slipped out of frame. The rest of the roll is still here.</p>
+    <div class="nf__links">
+      <a class="btn btn--solid" href="/YoWoRingo/">Back to home</a>
+      <a class="btn btn--ghost" href="/YoWoRingo/photography/">Focal Length</a>
+    </div>
   </main>
 </body>
 </html>

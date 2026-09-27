@@ -61,6 +61,7 @@ const ISLAND = label => `
 const FOOT = () => `
   <footer class="foot">
     <span class="label">&copy; 2026 YoWoRingo / ${import.meta.env.VITE_LEGAL_NAME}</span>
+    <span class="label">Also known as yowoapple</span>
     <span class="label">Chinese type set in HarmonyOS Sans</span>
     <a class="label" href="#top" data-top>Back to top</a>
   </footer>`;
