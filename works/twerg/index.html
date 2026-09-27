@@ -4,13 +4,144 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0b0c">
+  <meta name="description" content="TWERG — the Taiwan Earthquake Recording Group, founded by YoWoRingo (%VITE_LEGAL_NAME%) in 2018. 10,000 members, a public felt-report system and live hazard maps.">
+  <meta name="author" content="%VITE_LEGAL_NAME%">
   <title>TWERG — YoWoRingo</title>
-  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/pages/work-twerg.js"></script>
 </head>
-<body>
-  <main class="shell">
-    <p class="label">Work 01</p>
-    <h1 class="shell__title">TWERG</h1>
+<body data-page="work" data-island="TWERG">
+  <main id="top">
+    <section class="w-hero" data-island="01 — TWERG">
+      <p class="label w-hero__kicker">(Work 01) Founder / 2018 — now</p>
+      <h1 class="w-hero__title" data-split-lines><span>TWERG</span></h1>
+      <p class="w-hero__sub">Taiwan Earthquake Recording Group</p>
+      <dl class="w-stats">
+        <div><dt class="label">Founded</dt><dd>2018.12.02</dd></div>
+        <div><dt class="label">Discord members</dt><dd data-count-to="10000">10,000+</dd></div>
+        <div><dt class="label">Monitoring</dt><dd>24 / 7</dd></div>
+        <div><dt class="label">Platforms</dt><dd>05</dd></div>
+      </dl>
+    </section>
+
+    <section class="w-origin" data-island="02 — Origin">
+      <p class="label">Origin</p>
+      <blockquote class="w-quote" data-split-lines><span>"Can I add you</span><span>on Discord?"</span></blockquote>
+      <div class="w-origin__body">
+        <p>In 2018 I was watching an earthquake livestream and asked another person in the chat, someone who was also recording earthquakes, whether we could keep talking on Discord. That question became TWERG.</p>
+        <p>It grew into the earliest long-running earth science community on Discord in the Chinese-speaking world: earthquakes, typhoons, heavy rain and everything in between, shared as fast and as accurately as we can.</p>
+      </div>
+    </section>
+
+    <section class="w-timeline" data-island="03 — Timeline">
+      <p class="label">Timeline</p>
+      <ol class="w-timeline__list">
+        <li><span class="label">2018.12</span><strong>TWERG is founded</strong><p>A Discord server for people who record earthquakes.</p></li>
+        <li><span class="label">2020</span><strong>Beyond Taiwan</strong><p>Japan Meteorological Agency data joins the feed; the first community seismology exam is held.</p></li>
+        <li><span class="label">2021</span><strong>A full earth science platform</strong><p>Earthquakes are joined by weather, typhoons and the rest of earth science; the entry exam is retired so anyone can join.</p></li>
+        <li><span class="label">2026.02</span><strong>Website v3 and DYFI</strong><p>A rebuilt twerg.org launches with a scientific felt-report system.</p></li>
+        <li><span class="label">2026.04</span><strong>10,000 members</strong><p>The largest earth science community on Discord in the Chinese-speaking world.</p></li>
+      </ol>
+    </section>
+
+    <section class="w-built" data-island="04 — What I Built">
+      <header class="w-built__head">
+        <p class="label">What I built</p>
+        <h2 class="section-title" data-split-lines><span>Five things,</span><span>built by hand.</span></h2>
+      </header>
+      <div class="w-built__viewport" data-hscroll>
+        <ol class="w-built__track" data-hscroll-track>
+          <li class="w-card">
+            <picture class="w-card__media"><source srcset="/img/twerg-site-home-1400.avif" type="image/avif"><img src="/img/twerg-site-home-1400.webp" alt="The twerg.org home page" loading="lazy" decoding="async"></picture>
+            <span class="label">01 / Website</span>
+            <h3>twerg.org</h3>
+            <p>The community's home: live earthquake reports, a notable-earthquake archive, a changelog and policies. Built by me, in four languages.</p>
+          </li>
+          <li class="w-card">
+            <picture class="w-card__media"><source srcset="/img/twerg-dyfi-720.avif" type="image/avif"><img src="/img/twerg-dyfi-720.webp" alt="A felt-intensity map of Taiwan built from public reports" loading="lazy" decoding="async"></picture>
+            <span class="label">02 / DYFI</span>
+            <h3>Did You Feel It?</h3>
+            <p>A felt-report system that turns what people feel into a town-level intensity map, checked against instruments. More on it below.</p>
+          </li>
+          <li class="w-card">
+            <picture class="w-card__media"><source srcset="/img/twerg-rain-720.avif" type="image/avif"><img src="/img/twerg-rain-720.webp" alt="A heavy rain advisory map of Taiwan" loading="lazy" decoding="async"></picture>
+            <span class="label">03 / Heavy rain</span>
+            <h3>Rain advisory map</h3>
+            <p>Official heavy rain advisories redrawn as a clean town-level map, paired with a second map for work and school closures.</p>
+          </li>
+          <li class="w-card">
+            <picture class="w-card__media"><source srcset="/img/twerg-typhoon-720.avif" type="image/avif"><img src="/img/twerg-typhoon-720.webp" alt="A typhoon warning map with forecast track and wind radii" loading="lazy" decoding="async"></picture>
+            <span class="label">04 / Typhoon</span>
+            <h3>Typhoon track map</h3>
+            <p>Forecast track, potential path, storm radii and warning areas in one frame, built to be shared as soon as a warning is issued.</p>
+          </li>
+          <li class="w-card w-card--type">
+            <div class="w-card__media w-card__swatch" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            <span class="label">05 / System</span>
+            <h3>Readable by everyone</h3>
+            <p>Hazard colors follow a color-universal design palette so they stay distinguishable for color-blind readers, with no decorative gradients or glow.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="w-dyfi" data-island="05 — DYFI">
+      <header class="w-dyfi__head">
+        <p class="label">Deep dive</p>
+        <h2 class="section-title" data-split-lines><span>DYFI,</span><span>done properly.</span></h2>
+        <p class="w-dyfi__lead">A shaking map built from people instead of sensors. Getting it right meant reading the research, and then finding where a naive version goes wrong.</p>
+      </header>
+      <ol class="w-flow" aria-label="How a felt report becomes a map">
+        <li><span class="label">01</span>Reports</li>
+        <li><span class="label">02</span>Consensus</li>
+        <li><span class="label">03</span>Intensity</li>
+        <li><span class="label">04</span>Check</li>
+        <li><span class="label">05</span>Map</li>
+      </ol>
+      <div class="w-steps">
+        <article class="w-step">
+          <span class="label">01 / Foundation</span>
+          <h3>Built on USGS "Did You Feel It?"</h3>
+          <p>The method follows the USGS framework for community decimal intensity, then maps the result onto the Central Weather Administration's own intensity scale so it speaks the same language as official reports.</p>
+        </article>
+        <article class="w-step w-step--key">
+          <span class="label">02 / The mistake I fixed</span>
+          <h3>Never average people.</h3>
+          <p>The obvious approach, scoring each person and averaging the scores, quietly breaks: someone who was outdoors cannot answer the indoor questions, and a naive average drags the whole area down. Following Quitoriano and Wald, the system first finds the community's consensus on each question, then computes one intensity for the area.</p>
+        </article>
+        <article class="w-step">
+          <span class="label">03 / The questions</span>
+          <h3>Three kinds of evidence</h3>
+          <p>What people felt, what moved indoors and what happened outside are weighed as separate factors, with an anchor question that grounds the rest.</p>
+        </article>
+        <article class="w-step">
+          <span class="label">04 / Place</span>
+          <h3>Town by town</h3>
+          <p>Reports are located to their town, grouped on a grid and cleaned of outliers. "I didn't feel it" is kept too, because it marks where the shaking stopped.</p>
+        </article>
+        <article class="w-step">
+          <span class="label">05 / Trust</span>
+          <h3>Checked against instruments</h3>
+          <p>Every area is compared with nearby seismic stations and with an intensity prediction model, so reports that do not fit the physics are flagged.</p>
+        </article>
+        <article class="w-step">
+          <span class="label">06 / Privacy</span>
+          <h3>Nothing personal kept</h3>
+          <p>Abuse protection stores only a one-way hash of an address, deleted automatically within about two days.</p>
+        </article>
+      </div>
+      <p class="w-refs label">References: Wald et al. 2012, Annals of Geophysics / Quitoriano &amp; Wald 2020, Frontiers in Earth Science / Gupta 2014, Stanford University / CWA seismic intensity scale, 2020</p>
+    </section>
+
+    <section class="w-next" data-island="06 — Next">
+      <div class="w-next__links">
+        <a class="btn btn--solid" href="https://www.twerg.org/" target="_blank" rel="noopener">Visit twerg.org</a>
+        <a class="btn btn--ghost" href="https://www.twerg.org/join.html" target="_blank" rel="noopener">Join the Discord</a>
+      </div>
+      <a class="w-next__work" href="../plum/">
+        <span class="label">Next work / 02</span>
+        <span class="w-next__title">Beyond the Point</span>
+      </a>
+    </section>
   </main>
 </body>
 </html>
