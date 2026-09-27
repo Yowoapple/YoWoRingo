@@ -99,6 +99,22 @@ p {
   animation: vt-in 0.6s var(--ease-out) both;
 }
 
+:root.is-lang-switch::view-transition-old(root) {
+  animation: lang-out 0.22s ease both;
+}
+
+:root.is-lang-switch::view-transition-new(root) {
+  animation: lang-in 0.45s var(--ease-out) both;
+}
+
+@keyframes lang-out {
+  to { opacity: 0; filter: blur(4px); }
+}
+
+@keyframes lang-in {
+  from { opacity: 0; filter: blur(4px); }
+}
+
 @keyframes vt-out {
   to { opacity: 0; transform: translateY(-2%) scale(0.985); filter: blur(6px); }
 }

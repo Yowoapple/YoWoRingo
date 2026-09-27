@@ -28,4 +28,6 @@ audio.onChange(on => {
   } catch {}
 });
 
-initLang();
+initLang({
+  scrollBy: dy => (lenis ? lenis.scrollTo(window.scrollY + dy, { immediate: true, force: true }) : window.scrollBy(0, dy))
+});

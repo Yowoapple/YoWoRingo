@@ -57,9 +57,8 @@ async function face(family, file, chars, weight, out) {
   console.log(`${out} ${kb(buf)} (${chars.size} glyphs)`);
 }
 
-const TC = { 300: ['Light', '100 349'], 400: ['Regular', '350 599'], 700: ['Bold', '600 900'] };
-for (const [w, [name, range]] of Object.entries(TC)) await face('HarmonyOS Sans TC', `HarmonyOS_SansTC_${name}.ttf`, core, range, `hos-tc-core-${w}.woff2`);
-if (hantFull.size) for (const w of [400, 700]) await face('HarmonyOS Sans TC', `HarmonyOS_SansTC_${TC[w][0]}.ttf`, hantFull, w === 700 ? '600 900' : '100 599', `hos-tc-${w}.woff2`);
+await face('HarmonyOS Sans TC', 'HarmonyOS_Sans_TC.ttf', core, '100 900', 'hos-tc-core.woff2');
+if (hantFull.size) await face('HarmonyOS Sans TC', 'HarmonyOS_Sans_TC.ttf', hantFull, '100 900', 'hos-tc.woff2');
 await face('HarmonyOS Sans SC', 'HarmonyOS_Sans_SC.ttf', hansAll, '100 900', 'hos-sc.woff2');
 
 writeFileSync(join(root, 'src', 'css', 'fonts.css'), faces.join('\n\n') + '\n');
