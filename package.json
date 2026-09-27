@@ -12,6 +12,7 @@
     "fonts": "node scripts/fonts.mjs",
     "works": "node scripts/works.mjs",
     "brand": "node scripts/brand.mjs",
+    "readme": "node scripts/readme.mjs",
     "i18n": "node scripts/i18n.mjs && node scripts/fonts.mjs"
   },
   "devDependencies": {

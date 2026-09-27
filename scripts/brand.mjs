@@ -1,8 +1,7 @@
 import sharp from 'sharp';
-import subsetFont from 'subset-font';
-import * as fontkit from 'fontkit';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { SANS, MONO, font, textPath } from './lib/type.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const pub = join(root, 'public');
@@ -10,14 +9,6 @@ const ogDir = join(pub, 'og');
 mkdirSync(ogDir, { recursive: true });
 
 const INK = '#0b0b0c', PAPER = '#efeeea', MUTE = '#85847f', SIGNAL = '#2b3bff';
-const SANS = join(root, 'node_modules/@fontsource-variable/schibsted-grotesk/files/schibsted-grotesk-latin-wght-normal.woff2');
-const MONO = join(root, 'node_modules/@fontsource-variable/azeret-mono/files/azeret-mono-latin-wght-normal.woff2');
-const CHARS = ' ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789()/,.?–-+';
-
-async function font(file, wght) {
-  const buf = await subsetFont(readFileSync(file), CHARS, { targetFormat: 'sfnt', variationAxes: { wght } });
-  return fontkit.create(buf);
-}
 
 const bold = await font(SANS, 700);
 const heavy = await font(SANS, 800);
@@ -26,14 +17,8 @@ const mono = await font(MONO, 400);
 const monoLight = await font(MONO, 200);
 
 function text(f, str, size, x, y, { fill = PAPER, tracking = 0 } = {}) {
-  const run = f.layout(str);
-  const s = size / f.unitsPerEm;
-  let pen = 0, d = '';
-  run.glyphs.forEach((g, i) => {
-    d += g.path.scale(s, -s).translate(x + pen, y).toSVG();
-    pen += run.positions[i].xAdvance * s + tracking * size;
-  });
-  return { svg: `<path d="${d}" fill="${fill}"/>`, width: pen };
+  const { d, width } = textPath(f, str, size, x, y, tracking);
+  return { svg: `<path d="${d}" fill="${fill}"/>`, width };
 }
 
 function monogram(size, { radius = 0, inset = 1 } = {}) {
