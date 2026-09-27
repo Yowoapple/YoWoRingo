@@ -16,6 +16,9 @@ let label = null;
 let scrollBy = dy => window.scrollBy(0, dy);
 let busy = false;
 
+const FIREFOX = CSS.supports('-moz-appearance', 'none');
+const wait = ms => new Promise(r => setTimeout(r, ms));
+
 function detect() {
   try {
     const saved = localStorage.getItem('lang');
@@ -68,13 +71,20 @@ async function apply(save) {
     ScrollTrigger.update();
   };
   const root = document.documentElement;
-  if (document.startViewTransition && !reducedMotion()) {
+  if (reducedMotion()) {
+    await update();
+  } else if (FIREFOX || !document.startViewTransition) {
+    root.classList.add('is-lang-fading');
+    await wait(220);
+    await update();
+    root.classList.remove('is-lang-fading');
+    await wait(400);
+  } else {
     root.classList.add('is-lang-switch');
     const vt = document.startViewTransition(update);
+    vt.ready.catch(() => {});
     await vt.finished.catch(() => {});
     root.classList.remove('is-lang-switch');
-  } else {
-    await update();
   }
   busy = false;
 }
