@@ -120,12 +120,17 @@ await render('photography', frame(`
   ${text(heavy, 'LENGTH', 150, 64, 460, { fill: SIGNAL, tracking: -0.06 }).svg}
   ${label('54 FRAMES / 23 TO 439 MM', 72, 558, PAPER)}`), [{ input: photoBuf, top: 0, left: 0 }]);
 
-const dyfi = await sharp(join(pub, 'img/twerg-dyfi-720.webp')).resize(360, 492, { fit: 'contain', background: INK }).toBuffer();
+const TILE = 380;
+const logo = await sharp(join(root, 'twerg/twerg-logo-square.png'))
+  .resize(TILE, TILE)
+  .composite([{ input: Buffer.from(`<svg width="${TILE}" height="${TILE}"><rect width="${TILE}" height="${TILE}" rx="22"/></svg>`), blend: 'dest-in' }])
+  .png()
+  .toBuffer();
 await render('twerg', frame(`
   ${label('YOWORINGO / WORK 01 / FOUNDER', 72, 92)}
   ${text(heavy, 'TWERG', 184, 60, 370, { tracking: -0.07 }).svg}
   ${text(regular, 'Taiwan Earthquake Recording Group', 36, 72, 450, { fill: MUTE, tracking: -0.02 }).svg}
-  ${label('2018 / 10,000+ MEMBERS / DYFI', 72, 558, PAPER)}`), [{ input: dyfi, top: 69, left: 780 }]);
+  ${label('2018 / 10,000+ MEMBERS / DYFI', 72, 558, PAPER)}`), [{ input: logo, top: Math.round((H - TILE) / 2), left: W - 72 - TILE }]);
 
 const plum = JSON.parse(readFileSync(join(root, 'src/data/plum.json'), 'utf8'));
 const COLORS = ['#f4f9ff', '#f2f2ff', '#00aaff', '#0041ff', '#fae696', '#ffe600', '#ff9900', '#ff2800', '#a50021', '#b40068'];
