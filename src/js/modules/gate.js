@@ -1,7 +1,13 @@
 import { audio } from './audio.js';
+import { store } from '../utils/store.js';
 
-export function initGate(ready) {
+export async function initGate(ready) {
   const gate = document.querySelector('[data-gate]');
+  if (store.get('entered')) {
+    gate.remove();
+    await ready.catch(() => {});
+    return { skipped: true, sound: store.get('sound') === 'on' };
+  }
   const count = gate.querySelector('[data-gate-count]');
   const actions = gate.querySelector('[data-gate-actions]');
   let value = 0;
@@ -35,11 +41,13 @@ export function initGate(ready) {
       const btn = e.target.closest('[data-enter]');
       if (!btn) return;
       cancelAnimationFrame(raf);
-      if (btn.dataset.enter === 'sound') await audio.enable();
+      const sound = btn.dataset.enter === 'sound';
+      if (sound) await audio.enable();
       else audio.disable();
+      store.set('entered', '1');
       gate.classList.add('is-leaving');
       setTimeout(() => gate.remove(), 900);
-      resolve(btn.dataset.enter === 'sound');
+      resolve({ skipped: false, sound });
     });
   });
 }

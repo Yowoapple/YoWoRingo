@@ -32,13 +32,13 @@ const heroReady = createPixelHero(heroCanvas, {
   reduced
 });
 
-const withSound = await initGate(heroReady);
+const entry = await initGate(heroReady);
 const hero = await heroReady;
 
 document.documentElement.classList.remove('is-gated');
 lenis?.start();
 hero.play();
-if (withSound) {
+if (entry.sound && !entry.skipped) {
   music.play();
   audio.sweep(true);
 }

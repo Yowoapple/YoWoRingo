@@ -1,3 +1,4 @@
+import '../../css/pages/work.css';
 import '../../css/pages/photography.css';
 import { lenis } from '../main.js';
 import { initSite, go } from '../site.js';
