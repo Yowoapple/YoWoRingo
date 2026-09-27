@@ -278,7 +278,7 @@
   "Built on USGS \"Did You Feel It?\"": "以 USGS「Did You Feel It?」为基础",
   "The method follows the USGS framework for community decimal intensity, then maps the result onto the Central Weather Administration's own intensity scale so it speaks the same language as official reports.": "方法沿用 USGS 的社区十进位烈度（CDI）框架，再把结果对应到中央气象署的烈度分级，让它和官方报告说同一种语言。",
   "02 / The mistake I fixed": "02 / 我修正的错误",
-  "Never average people.": "别把人平均。",
+  "Never average people.": "永不平均人群。",
   "The obvious approach, scoring each person and averaging the scores, quietly breaks: someone who was outdoors cannot answer the indoor questions, and a naive average drags the whole area down. Following Quitoriano and Wald, the system first finds the community's consensus on each question, then computes one intensity for the area.": "直觉的做法是替每个人算分再取平均，但它会悄悄出错：人在户外的人无法回答室内的题目，直接平均会把整个地区的烈度拉低。依照 Quitoriano 与 Wald 的做法，系统先找出社区对每一题的共识，再为整个地区算出一个烈度。",
   "03 / The questions": "03 / 问卷",
   "Three kinds of evidence": "三种证据",
