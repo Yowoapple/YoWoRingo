@@ -38,8 +38,26 @@ function translateAttrs(el) {
   }
 }
 
+function subtitles(root) {
+  const list = root.matches?.('[data-i18n-sub]') ? [root] : [...root.querySelectorAll('[data-i18n-sub]')];
+  list.forEach(el => {
+    let sub = el.nextElementSibling?.classList.contains('i18n-sub') ? el.nextElementSibling : null;
+    if (!sub) {
+      sub = document.createElement('p');
+      sub.className = 'i18n-sub';
+      sub.setAttribute('data-no-i18n', '');
+      sub.setAttribute('aria-hidden', 'true');
+      el.insertAdjacentElement('afterend', sub);
+    }
+    const text = lang === 'en' ? '' : dict[norm(el.dataset.i18nSub)] ?? '';
+    sub.textContent = text;
+    sub.hidden = !text;
+  });
+}
+
 export function translateTree(root = document.body) {
   if (!root) return;
+  subtitles(root);
   const whole = root.matches?.('[data-i18n]') ? [root] : [...root.querySelectorAll('[data-i18n]')];
   whole.forEach(el => {
     if (!htmlOrigin.has(el)) htmlOrigin.set(el, el.innerHTML);
@@ -50,10 +68,10 @@ export function translateTree(root = document.body) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
       if (node.nodeType === 1) {
-        if (SKIP.has(node.nodeName) || node.hasAttribute('data-no-i18n') || node.hasAttribute('data-i18n')) return NodeFilter.FILTER_REJECT;
+        if (SKIP.has(node.nodeName) || node.hasAttribute('data-no-i18n') || node.hasAttribute('data-i18n') || node.hasAttribute('data-i18n-sub')) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
-      return /[A-Za-z]/.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      return /[A-Za-z]/.test(textOrigin.get(node) ?? node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
     }
   });
   if (root.nodeType === 1 && !root.matches('[data-i18n]')) translateAttrs(root);
@@ -96,7 +114,7 @@ export function collectKeys(root = document.body) {
   root.querySelectorAll('[data-i18n]').forEach(el => keys.add(norm(htmlOrigin.get(el) ?? el.innerHTML)));
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
-      if (node.nodeType === 1) return SKIP.has(node.nodeName) || node.hasAttribute('data-no-i18n') || node.hasAttribute('data-i18n') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      if (node.nodeType === 1) return SKIP.has(node.nodeName) || node.hasAttribute('data-no-i18n') || node.hasAttribute('data-i18n') || node.hasAttribute('data-i18n-sub') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
       return /[A-Za-z]/.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
     }
   });

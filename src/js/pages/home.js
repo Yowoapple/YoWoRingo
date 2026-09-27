@@ -6,7 +6,7 @@ import { createPixelHero } from '../modules/pixel-hero.js';
 import { createPlayground } from '../modules/playground.js';
 import { initGate } from '../modules/gate.js';
 import { applyInitialLang } from '../modules/lang.js';
-import { t } from '../modules/i18n.js';
+import { t, onLang } from '../modules/i18n.js';
 import { initTweaks } from '../modules/tweaks.js';
 import { initTabs } from '../modules/tabs.js';
 import { initStory } from '../modules/story.js';
@@ -80,6 +80,8 @@ document.documentElement.addEventListener('pointerleave', () => hero.setPointer(
 window.addEventListener('blur', () => hero.setPointer(0, 0, false));
 
 const playground = createPlayground(document.querySelector('[data-stage]'), { onNavigate: leave });
+
+onLang(() => requestAnimationFrame(() => playground.refit()));
 
 const tiltBtn = document.querySelector('[data-tilt]');
 if (tiltBtn && coarsePointer() && 'DeviceOrientationEvent' in window) {

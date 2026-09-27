@@ -7,7 +7,8 @@ import { music } from './modules/music.js';
 import { asset } from './utils/device.js';
 import { store } from './utils/store.js';
 import { applyInitialLang } from './modules/lang.js';
-import { collectKeys, t } from './modules/i18n.js';
+import { collectKeys, t, onLang } from './modules/i18n.js';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const env = import.meta.env;
 
@@ -137,6 +138,7 @@ export function initSite({ home = false, commands = [] } = {}) {
     { group: 'Secret', title: 'Kuromi', hint: 'You found it', hidden: true, secret: 'kuromi', run: kuromi }
   ], { onOpen: () => lenis?.stop(), onClose: () => lenis?.start() });
 
+  onLang(() => requestAnimationFrame(() => requestAnimationFrame(() => ScrollTrigger.refresh())));
   applyInitialLang();
   if (new URLSearchParams(location.search).has('i18n-keys')) {
     setTimeout(() => console.log('I18N_KEYS', JSON.stringify(collectKeys())), 1500);

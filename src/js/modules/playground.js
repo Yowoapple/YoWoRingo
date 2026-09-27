@@ -207,7 +207,29 @@ export function createPlayground(stage, options = {}) {
   io.observe(stage);
   ro.observe(stage);
 
+  function refit() {
+    for (const [el, entry] of bodies) {
+      const w = el.offsetWidth, h = el.offsetHeight;
+      if (Math.abs(w - entry.w) < 1 && Math.abs(h - entry.h) < 1) continue;
+      const old = entry.body;
+      const kind = el.dataset.body;
+      const body = Bodies.rectangle(old.position.x, Math.min(old.position.y, H - h / 2), w, h, {
+        chamfer: { radius: kind === 'tag' ? Math.min(h / 2, 24) : 2 },
+        restitution: old.restitution,
+        friction: old.friction,
+        frictionAir: old.frictionAir,
+        density: old.density,
+        angle: old.angle
+      });
+      Composite.remove(engine.world, old);
+      Composite.add(engine.world, body);
+      bodies.set(el, { body, w, h });
+    }
+    sync();
+  }
+
   return {
+    refit,
     enableTilt,
     setGravity(g) {
       engine.gravity.scale = 0.001 * g;

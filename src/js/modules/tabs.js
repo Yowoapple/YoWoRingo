@@ -1,4 +1,5 @@
 import { audio } from './audio.js';
+import { onLang } from './i18n.js';
 
 export function initTabs(root) {
   const tabs = [...root.querySelectorAll('[role="tab"]')];
@@ -32,4 +33,5 @@ export function initTabs(root) {
   const current = () => tabs.find(t => t.getAttribute('aria-selected') === 'true') || tabs[0];
   new ResizeObserver(() => moveInk(current())).observe(root);
   document.fonts.ready.then(() => moveInk(current()));
+  onLang(() => requestAnimationFrame(() => moveInk(current())));
 }
