@@ -8,6 +8,7 @@ import { mountChrome } from './modules/chrome.js';
 import { reducedMotion } from './utils/device.js';
 
 gsap.registerPlugin(ScrollTrigger);
+if (reducedMotion()) gsap.globalTimeline.timeScale(1000);
 document.documentElement.classList.add('js');
 mountChrome({ label: document.body.dataset.island || '' });
 

@@ -70,4 +70,16 @@ export function mountChrome({ label = '' } = {}) {
   if (!document.querySelector('.nav')) document.body.insertAdjacentHTML('afterbegin', NAV(asset('')));
   if (!document.querySelector('[data-island-el]')) document.querySelector('.nav').insertAdjacentHTML('afterend', ISLAND(label));
   if (!document.querySelector('.foot')) document.body.insertAdjacentHTML('beforeend', FOOT());
+  mountSkipLink();
+}
+
+function mountSkipLink() {
+  const main = document.querySelector('main');
+  if (!main || document.querySelector('.skip')) return;
+  document.body.insertAdjacentHTML('afterbegin', '<a class="skip" href="#content">Skip to content</a>');
+  document.querySelector('.skip').addEventListener('click', e => {
+    e.preventDefault();
+    main.setAttribute('tabindex', '-1');
+    main.focus({ preventScroll: true });
+  });
 }

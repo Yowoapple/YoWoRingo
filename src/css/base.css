@@ -70,6 +70,31 @@ p {
   color: var(--mute);
 }
 
+.skip {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: calc(var(--z-loader) + 1);
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transform: translateY(calc(-100% - 24px));
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.skip:focus-visible {
+  transform: none;
+}
+
+main:focus {
+  outline: none;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

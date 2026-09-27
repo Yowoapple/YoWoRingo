@@ -1,5 +1,6 @@
 import { audio } from './audio.js';
 import { t } from './i18n.js';
+import { isolate } from '../utils/isolate.js';
 
 export function initPalette(getCommands, { onOpen, onClose } = {}) {
   const root = document.createElement('div');
@@ -12,7 +13,7 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
     <div class="palette__panel" role="dialog" aria-modal="true" aria-label="Command palette">
       <div class="palette__field">
         <span class="label">Go</span>
-        <input class="palette__input" type="text" placeholder="Type a command or search" autocomplete="off" spellcheck="false" aria-controls="palette-list">
+        <input class="palette__input" type="text" placeholder="Type a command or search" autocomplete="off" spellcheck="false" aria-label="Search commands" aria-controls="palette-list">
         <kbd class="palette__kbd">Esc</kbd>
         <button class="palette__close" type="button" data-close>Close</button>
       </div>
@@ -24,6 +25,7 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
   let items = [];
   let active = 0;
   let lastFocus = null;
+  let release = null;
   const touch = window.matchMedia('(pointer: coarse)').matches;
   root.querySelector('.palette__panel').tabIndex = -1;
 
@@ -97,10 +99,12 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
     root.querySelector('.palette__field .label').textContent = t('Go');
     root.querySelector('.palette__close').textContent = t('Close');
     input.placeholder = t('Type a command or search');
+    input.setAttribute('aria-label', t('Search commands'));
     input.value = '';
     active = touch ? -1 : 0;
     render();
     list.scrollTop = 0;
+    release = isolate(root);
     requestAnimationFrame(() => {
       root.classList.add('is-open');
       if (!touch) input.focus();
@@ -117,6 +121,8 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
     document.documentElement.classList.remove('is-locked');
     onClose?.();
     setTimeout(() => (root.hidden = true), 220);
+    release?.();
+    release = null;
     lastFocus?.focus?.({ preventScroll: true });
   }
 

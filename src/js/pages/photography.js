@@ -44,7 +44,7 @@ function groupHTML(f) {
   return `
     <section class="fl-group${solo ? ' fl-group--solo' : ''}" id="mm-${f}" data-focal="${f}" data-island="${f} mm">
       <header class="fl-head">
-        <p class="fl-head__num" data-num="${f}"><span>${f}</span><small>mm</small></p>
+        <h2 class="fl-head__num" data-num="${f}"><span>${f}</span><small>mm</small></h2>
         <dl class="fl-head__meta">
           <div><dt class="label">Field of view</dt><dd>${fov(f).toFixed(1)}&deg;</dd></div>
           <div><dt class="label">Frames</dt><dd>${String(list.length).padStart(2, '0')}</dd></div>

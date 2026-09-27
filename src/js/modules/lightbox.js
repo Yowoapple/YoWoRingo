@@ -1,6 +1,7 @@
 import { asset } from '../utils/device.js';
 import { audio } from './audio.js';
 import { t } from './i18n.js';
+import { isolate } from '../utils/isolate.js';
 
 export function createLightbox(photos, { onOpen, onClose } = {}) {
   const root = document.createElement('div');
@@ -32,6 +33,7 @@ export function createLightbox(photos, { onOpen, onClose } = {}) {
   const stage = root.querySelector('[data-stage]');
   let index = 0;
   let lastFocus = null;
+  let release = null;
   let startX = null;
 
   const url = (p, w, ext) => asset(`photos/${p.id}-${w}.${ext}`);
@@ -68,6 +70,7 @@ export function createLightbox(photos, { onOpen, onClose } = {}) {
     render();
     root.querySelector('[data-close]').textContent = t('Close');
     root.hidden = false;
+    release = isolate(root);
     requestAnimationFrame(() => root.classList.add('is-open'));
     root.querySelector('[data-close]').focus({ preventScroll: true });
     document.documentElement.classList.add('is-locked');
@@ -80,6 +83,8 @@ export function createLightbox(photos, { onOpen, onClose } = {}) {
     root.classList.remove('is-open');
     document.documentElement.classList.remove('is-locked');
     setTimeout(() => (root.hidden = true), 300);
+    release?.();
+    release = null;
     lastFocus?.focus?.({ preventScroll: true });
     onClose?.();
   }
