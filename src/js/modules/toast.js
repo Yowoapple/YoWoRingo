@@ -5,7 +5,14 @@ let stack = null;
 const CHECK = '<svg class="check" viewBox="0 0 24 24" aria-hidden="true"><circle class="check__ring" cx="12" cy="12" r="10"/><path class="check__mark" d="M7 12.5l3.2 3.2L17 9"/></svg>';
 const DOT = '<span class="toast__dot" aria-hidden="true"></span>';
 
+let islandHandler = null;
+
+export function setIslandHandler(fn) {
+  islandHandler = fn;
+}
+
 export function toast(message, { type = 'info', duration = 2600 } = {}) {
+  if (islandHandler && message.length <= 44 && islandHandler(message, type)) return;
   if (!stack) {
     stack = document.createElement('div');
     stack.className = 'toasts';

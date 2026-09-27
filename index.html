@@ -10,7 +10,7 @@
   <link rel="preload" href="/img/portrait-sample.png" as="image">
   <script type="module" src="/src/js/pages/home.js"></script>
 </head>
-<body data-page="home">
+<body data-page="home" data-island="01 — Portrait">
   <div class="gate" data-gate>
     <div class="gate__inner">
       <p class="label gate__kicker">YoWoRingo / Portfolio 2026</p>
@@ -42,34 +42,6 @@
       </button>
     </div>
   </header>
-
-  <div class="island" data-island-el>
-    <button class="island__pill" type="button" data-island-toggle aria-expanded="false" aria-label="Section and music player">
-      <span class="island__px" aria-hidden="true"></span>
-      <span class="island__label" data-island-label>01 — Portrait</span>
-      <span class="island__eq" aria-hidden="true"><i></i><i></i><i></i></span>
-    </button>
-    <div class="island__panel" data-island-panel hidden>
-      <div class="player">
-        <div class="player__meta">
-          <span class="label">Now playing</span>
-          <strong class="player__title">Got any Ringo?</strong>
-          <span class="label">Generative / Web Audio / 84 BPM</span>
-        </div>
-        <div class="player__row">
-          <button class="player__play" type="button" data-play aria-label="Play" aria-pressed="false"><span class="player__icon" aria-hidden="true"></span></button>
-          <div class="scrubber">
-            <input class="range" type="range" data-scrub min="0" max="1000" value="0" aria-label="Seek">
-            <div class="scrubber__times"><span class="label" data-time>0:00</span><span class="label" data-duration>0:00</span></div>
-          </div>
-        </div>
-        <div class="player__row player__row--split">
-          <label class="volume"><span class="label">Vol</span><input class="range" type="range" data-volume min="0" max="100" value="80" aria-label="Volume"></label>
-          <label class="toggle"><input type="checkbox" data-sfx checked><span class="toggle__track" aria-hidden="true"><span class="toggle__thumb"></span></span><span class="label">SFX</span></label>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <main>
     <section class="hero" id="top" data-island="01 — Portrait">

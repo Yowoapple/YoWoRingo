@@ -22,13 +22,22 @@ const NAV = home => `
 
 const ISLAND = label => `
   <div class="island" data-island-el>
-    <button class="island__pill" type="button" data-island-toggle aria-expanded="false" aria-label="Section and music player">
-      <span class="island__px" aria-hidden="true"></span>
-      <span class="island__label" data-island-label>${label}</span>
-      <span class="island__eq" aria-hidden="true"><i></i><i></i><i></i></span>
-    </button>
-    <div class="island__panel" data-island-panel hidden>
+    <div class="island__view island__view--compact is-active" data-view="compact">
+      <button class="island__pill" type="button" data-island-toggle aria-expanded="false" aria-label="Section and music player">
+        <span class="island__disc" aria-hidden="true"></span>
+        <span class="island__px" aria-hidden="true"></span>
+        <span class="island__label" data-island-label>${label}</span>
+        <span class="island__eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </button>
+    </div>
+    <div class="island__view island__view--notice" data-view="notice" role="status" aria-live="polite">
+      <svg class="check" viewBox="0 0 24 24" aria-hidden="true"><circle class="check__ring" cx="12" cy="12" r="10"/><path class="check__mark" d="M7 12.5l3.2 3.2L17 9"/></svg>
+      <span class="toast__dot" aria-hidden="true"></span>
+      <span class="island__notice" data-notice-text></span>
+    </div>
+    <div class="island__view island__view--player" data-view="player" data-island-panel>
       <div class="player">
+        <button class="island__collapse" type="button" data-island-collapse aria-label="Collapse player"></button>
         <div class="player__meta">
           <span class="label">Now playing</span>
           <strong class="player__title">Got any Ringo?</strong>
