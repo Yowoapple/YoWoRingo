@@ -8,6 +8,7 @@ import photosData from '../../data/photos.gen.json';
 import { createLightbox } from '../modules/lightbox.js';
 import { audio } from '../modules/audio.js';
 import { asset } from '../utils/device.js';
+import { t, onLang } from '../modules/i18n.js';
 
 const fov = f => (2 * Math.atan(43.27 / (2 * f)) * 180) / Math.PI;
 const NATIVE = new Set([23, 75, 120]);
@@ -23,7 +24,7 @@ function shotHTML(p, index, sizes) {
   const orient = p.ratio < 0.95 ? 'portrait' : p.ratio > 1.05 ? 'landscape' : 'square';
   const caption = `${p.focal}mm &nbsp; ${p.aperture} &nbsp; ${p.shutter} &nbsp; ISO${p.iso}`;
   return `
-    <figure class="shot shot--${orient}" data-shot="${index}">
+    <figure class="shot shot--${orient}" data-shot="${index}" data-no-i18n>
       <button class="shot__btn" type="button" aria-label="Open photo ${index + 1} of ${photos.length}, ${p.focal} mm">
         <span class="shot__frame" style="aspect-ratio:${p.width}/${p.height};background-color:${p.color};background-image:url(${p.lqip})">
           <picture>
@@ -76,10 +77,25 @@ function setFocal(f) {
   needle.style.setProperty('--pos', f ? logPos(f) : 0);
   root.style.setProperty('--finder', f ? `${(1 - deg / fov(focals[0])) * 16 + 2}vmin` : '2vmin');
   lens.querySelectorAll('.lens__tick').forEach(t => t.classList.toggle('is-active', Number(t.dataset.go) === f));
-  readout.textContent = f ? `${f} mm / ${deg.toFixed(1)}° / ${photos.filter(p => p.focal === f).length} frames` : '';
+  readout.textContent = f ? `${f} mm / ${deg.toFixed(1)}° / ${photos.filter(p => p.focal === f).length} ${t('frames')}` : '';
   root.classList.toggle('has-focal', Boolean(f));
   if (f) audio.tick(700 + f * 2, 0.03);
 }
+
+function labelShots() {
+  document.querySelectorAll('[data-shot]').forEach(fig => {
+    const p = photos[Number(fig.dataset.shot)];
+    fig.querySelector('.shot__btn').setAttribute('aria-label', t('Open photo {i} of {n}, {f} mm').replace('{i}', Number(fig.dataset.shot) + 1).replace('{n}', photos.length).replace('{f}', p.focal));
+    fig.querySelector('img').alt = t('Photograph at {f} mm').replace('{f}', p.focal);
+  });
+}
+
+onLang(() => {
+  labelShots();
+  const f = current;
+  current = null;
+  if (f) setFocal(f);
+});
 
 lens.addEventListener('click', e => {
   const b = e.target.closest('[data-go]');

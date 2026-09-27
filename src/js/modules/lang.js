@@ -1,8 +1,14 @@
+import { setLang } from './i18n.js';
+
 const LANGS = [
-  { code: 'en', label: 'EN', html: 'en' },
-  { code: 'zh-Hant', label: '繁', html: 'zh-Hant' },
-  { code: 'zh-Hans', label: '简', html: 'zh-Hans' }
+  { code: 'en', label: 'EN' },
+  { code: 'zh-Hant', label: '繁' },
+  { code: 'zh-Hans', label: '简' }
 ];
+
+let index = 0;
+let btn = null;
+let label = null;
 
 function detect() {
   try {
@@ -14,29 +20,39 @@ function detect() {
   return 'en';
 }
 
-export function initLang(onChange) {
-  const btn = document.querySelector('[data-lang]');
-  if (!btn) return;
-  const label = btn.querySelector('[data-lang-label]');
-  let index = LANGS.findIndex(l => l.code === detect());
+function paint() {
+  const lang = LANGS[index];
+  if (label) label.textContent = lang.label;
+  btn?.setAttribute('aria-label', `Language: ${lang.code}`);
+  document.documentElement.dataset.locale = lang.code;
+}
 
-  const apply = () => {
-    const lang = LANGS[index];
-    label.textContent = lang.label;
-    document.documentElement.dataset.lang = lang.code;
-    btn.setAttribute('aria-label', `Language: ${lang.code}`);
+async function apply(save) {
+  const lang = LANGS[index];
+  paint();
+  if (save) {
     try {
       localStorage.setItem('lang', lang.code);
     } catch {}
-    onChange?.(lang.code);
-  };
+  }
+  await setLang(lang.code);
+}
 
-  btn.addEventListener('click', () => {
+export function initLang() {
+  btn = document.querySelector('button[data-lang]');
+  label = btn?.querySelector('[data-lang-label]');
+  index = Math.max(0, LANGS.findIndex(l => l.code === detect()));
+  paint();
+  btn?.addEventListener('click', () => {
     index = (index + 1) % LANGS.length;
     btn.classList.remove('is-spinning');
     void btn.offsetWidth;
     btn.classList.add('is-spinning');
-    apply();
+    apply(true);
   });
-  apply();
+}
+
+export function applyInitialLang() {
+  if (LANGS[index].code !== 'en') return apply(false);
+  return Promise.resolve();
 }

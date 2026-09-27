@@ -6,6 +6,8 @@ import { audio } from './modules/audio.js';
 import { music } from './modules/music.js';
 import { asset } from './utils/device.js';
 import { store } from './utils/store.js';
+import { applyInitialLang } from './modules/lang.js';
+import { collectKeys, t } from './modules/i18n.js';
 
 const env = import.meta.env;
 
@@ -24,11 +26,12 @@ export async function copyEmail() {
     document.execCommand('copy');
     t.remove();
   }
-  toast(`${email} copied`, { type: 'success' });
+  toast(t('{email} copied').replace('{email}', email), { type: 'success' });
   const hint = document.querySelector('.contact__email-hint');
   if (hint) {
-    hint.textContent = 'Copied';
-    setTimeout(() => (hint.textContent = 'Click to copy'), 2400);
+    hint.setAttribute('data-no-i18n', '');
+    hint.textContent = t('Copied');
+    setTimeout(() => (hint.textContent = t('Click to copy')), 2400);
   }
 }
 
@@ -127,12 +130,16 @@ export function initSite({ home = false, commands = [] } = {}) {
     { group: 'Actions', title: 'Copy email', hint: env.VITE_EMAIL, run: copyEmail },
     { group: 'Actions', title: music.playing ? 'Pause music' : 'Play music', hint: 'Player', run: () => music.toggle() },
     { group: 'Actions', title: audio.enabled ? 'Mute everything' : 'Turn sound on', hint: 'Sound', run: () => document.querySelector('[data-sound]').click() },
-    { group: 'Actions', title: 'Switch language', hint: 'EN / 繁 / 简', run: () => document.querySelector('[data-lang]').click() },
+    { group: 'Actions', title: 'Switch language', hint: 'EN / 繁 / 简', run: () => document.querySelector('button[data-lang]').click() },
     { group: 'Elsewhere', title: 'Instagram', hint: '@yowoapple', run: () => window.open(env.VITE_INSTAGRAM, '_blank', 'noopener') },
     { group: 'Elsewhere', title: 'X', hint: '@AppleJackOAO', run: () => window.open(env.VITE_X, '_blank', 'noopener') },
     { group: 'Elsewhere', title: 'GitHub', hint: 'Yowoapple', run: () => window.open(env.VITE_GITHUB, '_blank', 'noopener') },
     { group: 'Secret', title: 'Kuromi', hint: 'You found it', hidden: true, secret: 'kuromi', run: kuromi }
   ], { onOpen: () => lenis?.stop(), onClose: () => lenis?.start() });
 
+  applyInitialLang();
+  if (new URLSearchParams(location.search).has('i18n-keys')) {
+    setTimeout(() => console.log('I18N_KEYS', JSON.stringify(collectKeys())), 1500);
+  }
   return { island };
 }

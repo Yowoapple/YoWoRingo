@@ -26,7 +26,7 @@
       <h2 class="w-quote" data-split-lines><span>A point</span><span>is not a fault.</span></h2>
       <div class="w-prose">
         <p>Early warning systems usually treat an earthquake as a single point, so predicted shaking fades the same way in every direction. That works for small events.</p>
-        <p>Large, shallow earthquakes are different. The rupture <strong>travels</strong> along the fault, and it throws stronger shaking ahead of itself. Places in that direction can feel far more than a point-source estimate says. In early warning, that is the worst kind of error: <strong>telling people it is weaker than it is.</strong></p>
+        <p data-i18n>Large, shallow earthquakes are different. The rupture <strong>travels</strong> along the fault, and it throws stronger shaking ahead of itself. Places in that direction can feel far more than a point-source estimate says. In early warning, that is the worst kind of error: <strong>telling people it is weaker than it is.</strong></p>
       </div>
     </section>
 
@@ -47,7 +47,7 @@
           <p class="label">Replay / Retrospective simulation</p>
           <h2 class="section-title" data-split-lines><span>Watch it</span><span>correct itself.</span></h2>
         </div>
-        <div class="tabs p-tabs" data-events>
+        <div class="tabs p-tabs" data-events data-no-i18n>
           <div class="tabs__list" role="tablist" aria-label="Earthquake"></div>
         </div>
       </header>
@@ -61,26 +61,26 @@
         </figure>
 
         <aside class="p-side">
-          <div class="p-event" data-event-info></div>
+          <div class="p-event" data-event-info data-no-i18n></div>
           <div class="p-time">
             <div class="p-time__row">
               <button class="player__play" type="button" data-demo-play aria-label="Play replay" aria-pressed="false"><span class="player__icon" aria-hidden="true"></span></button>
               <div class="scrubber">
                 <input class="range" type="range" min="0" max="600" value="0" data-demo-time aria-label="Seconds after origin time">
-                <div class="scrubber__times"><span class="label" data-demo-clock>T + 0.0 s</span><span class="label">T + 60 s</span></div>
+                <div class="scrubber__times"><span class="label" data-demo-clock data-no-i18n>T + 0.0 s</span><span class="label">T + 60 s</span></div>
               </div>
             </div>
-            <p class="p-phase" data-phase></p>
+            <p class="p-phase" data-phase data-no-i18n></p>
           </div>
-          <div class="p-chart" data-chart></div>
-          <p class="p-stat label" data-stat></p>
+          <div class="p-chart" data-chart data-no-i18n></div>
+          <p class="p-stat label" data-stat data-no-i18n></p>
         </aside>
       </div>
 
       <div class="p-lesson" data-reveal>
         <div class="p-lesson__text">
           <p class="label">What the replay taught me</p>
-          <p class="p-lesson__lead">Direction fixes <em>where</em> the shaking goes, not <em>how big</em> the earthquake is.</p>
+          <p class="p-lesson__lead" data-i18n>Direction fixes <em>where</em> the shaking goes, not <em>how big</em> the earthquake is.</p>
           <p>In Hualien the first magnitude was close, and correcting direction turned three missed strong-shaking cities into none. In Chishang and Nanxi the first magnitude was off, and correcting direction alone could not close the gap. For Nanxi it even pushed an already high estimate higher. That is the next problem to solve.</p>
         </div>
         <table class="p-lesson__table">

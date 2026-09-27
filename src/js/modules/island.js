@@ -2,6 +2,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { music } from './music.js';
 import { audio } from './audio.js';
 import { setIslandHandler } from './toast.js';
+import { t, onLang } from './i18n.js';
 
 const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 
@@ -57,7 +58,7 @@ export function initIsland() {
     island.classList.add('is-switching');
     if (state === 'compact') squish();
     setTimeout(() => {
-      label.textContent = text;
+      label.textContent = t(text);
       island.classList.remove('is-switching');
       if (state === 'compact') fit();
     }, 160);
@@ -167,6 +168,12 @@ export function initIsland() {
   });
 
   Object.values(views).forEach(v => (v.inert = v !== views[state]));
+  label.setAttribute('data-no-i18n', '');
+  noticeText.setAttribute('data-no-i18n', '');
+  onLang(() => {
+    label.textContent = t(current);
+    requestAnimationFrame(() => fit());
+  });
   music.onChange(sync);
   sync();
   island.dataset.state = state;

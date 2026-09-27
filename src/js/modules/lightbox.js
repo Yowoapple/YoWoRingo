@@ -1,5 +1,6 @@
 import { asset } from '../utils/device.js';
 import { audio } from './audio.js';
+import { t } from './i18n.js';
 
 export function createLightbox(photos, { onOpen, onClose } = {}) {
   const root = document.createElement('div');
@@ -9,6 +10,7 @@ export function createLightbox(photos, { onOpen, onClose } = {}) {
   root.setAttribute('aria-modal', 'true');
   root.setAttribute('aria-label', 'Photo viewer');
   root.setAttribute('data-lenis-prevent', '');
+  root.setAttribute('data-no-i18n', '');
   root.innerHTML = `
     <div class="lightbox__bg" data-bg></div>
     <figure class="lightbox__stage" data-stage>
@@ -44,14 +46,14 @@ export function createLightbox(photos, { onOpen, onClose } = {}) {
     img.srcset = set('webp');
     img.sizes = '(max-width: 900px) 100vw, 80vw';
     img.src = url(p, p.sizes.at(-1), 'webp');
-    img.alt = `Photograph at ${p.focal} mm`;
+    img.alt = t('Photograph at {f} mm').replace('{f}', p.focal);
     img.onload = () => img.classList.add('is-loaded');
     bg.style.background = p.color;
     root.querySelector('[data-count]').textContent = `${String(index + 1).padStart(2, '0')} / ${photos.length}`;
     root.querySelector('[data-focal]').textContent = `${p.focal} mm`;
     const rows = [['Aperture', p.aperture], ['Shutter', p.shutter], ['ISO', p.iso], ['Camera', p.camera]];
     if (p.date) rows.push(['Date', p.date.replaceAll('-', '.')]);
-    root.querySelector('[data-spec]').innerHTML = rows.map(([k, v]) => `<div><dt class="label">${k}</dt><dd>${v}</dd></div>`).join('');
+    root.querySelector('[data-spec]').innerHTML = rows.map(([k, v]) => `<div><dt class="label">${t(k)}</dt><dd>${v}</dd></div>`).join('');
     if (dir) stage.animate([{ transform: `translateX(${dir * 40}px)`, opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 450, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' });
     [photos[index + 1], photos[index - 1]].forEach(n => {
       if (!n) return;
@@ -64,6 +66,7 @@ export function createLightbox(photos, { onOpen, onClose } = {}) {
     index = i;
     lastFocus = document.activeElement;
     render();
+    root.querySelector('[data-close]').textContent = t('Close');
     root.hidden = false;
     requestAnimationFrame(() => root.classList.add('is-open'));
     root.querySelector('[data-close]').focus({ preventScroll: true });

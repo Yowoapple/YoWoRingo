@@ -1,0 +1,82 @@
+:root:lang(zh-Hans) {
+  --font-sans: 'Schibsted Grotesk Variable', 'HarmonyOS Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-cjk: 'HarmonyOS Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+:root:is(:lang(zh-Hant), :lang(zh-Hans)) body {
+  line-height: 1.75;
+}
+
+:root:is(:lang(zh-Hant), :lang(zh-Hans)) :is(
+  .section-title,
+  .chapter__title,
+  .w-quote,
+  .playground__title,
+  .contact__title,
+  .fl-intro__title,
+  .fl-outro__text,
+  .work__title,
+  .w-next__title,
+  .p-lesson__lead,
+  .w-step--key h3,
+  .g-title,
+  .gate__question
+) {
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+}
+
+:root:is(:lang(zh-Hant), :lang(zh-Hans)) :is(
+  .w-hero__sub,
+  .hero__roles,
+  .note,
+  .name__note,
+  .chapter__body,
+  .w-prose,
+  .w-origin__body,
+  .w-card h3,
+  .w-card p,
+  .w-step h3,
+  .w-step p,
+  .p-steps h3,
+  .p-steps p,
+  .w-timeline__list strong,
+  .w-timeline__list p,
+  .edu__list dt,
+  .p-event strong,
+  .p-phase,
+  .player__title,
+  .island__notice,
+  .palette__title,
+  .toast,
+  .contact__lead,
+  .fl-intro__lead,
+  .w-dyfi__lead
+) {
+  letter-spacing: 0.02em;
+}
+
+:root:is(:lang(zh-Hant), :lang(zh-Hans)) :is(.chapter__title, .section-title, .w-quote, .fl-outro__text) {
+  font-size: clamp(1.9rem, 4.6vw, 5rem);
+}
+
+:root:is(:lang(zh-Hant), :lang(zh-Hans)) .contact__title {
+  font-size: clamp(3.5rem, 11vw, 12rem);
+}
+
+:root:is(:lang(zh-Hant), :lang(zh-Hans)) .w-next__title {
+  font-size: clamp(2.75rem, 9vw, 9rem);
+}
+
+:root:is(:lang(zh-Hant), :lang(zh-Hans)) .playground__title {
+  font-size: clamp(1.6rem, 3vw, 3rem);
+}
+
+:root:is(:lang(zh-Hant), :lang(zh-Hans)) .label {
+  letter-spacing: 0.08em;
+}
+
+:root:is(:lang(zh-Hant), :lang(zh-Hans)) .fl-intro__title > span:last-child,
+:root:is(:lang(zh-Hant), :lang(zh-Hans)) .contact__title > span:last-child {
+  padding-left: 0.25em;
+}

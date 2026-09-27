@@ -1,4 +1,5 @@
 import { audio } from './audio.js';
+import { t } from './i18n.js';
 
 let stack = null;
 
@@ -12,12 +13,14 @@ export function setIslandHandler(fn) {
 }
 
 export function toast(message, { type = 'info', duration = 2600 } = {}) {
+  message = t(message);
   if (islandHandler && message.length <= 44 && islandHandler(message, type)) return;
   if (!stack) {
     stack = document.createElement('div');
     stack.className = 'toasts';
     stack.setAttribute('role', 'status');
     stack.setAttribute('aria-live', 'polite');
+    stack.setAttribute('data-no-i18n', '');
     document.body.append(stack);
   }
   const el = document.createElement('div');

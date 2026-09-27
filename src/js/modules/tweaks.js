@@ -3,6 +3,7 @@ export function initTweaks(controls) {
   panel.className = 'tweaks';
   panel.hidden = true;
   panel.setAttribute('aria-label', 'Tweaks');
+  panel.setAttribute('data-no-i18n', '');
   panel.innerHTML = `<header class="tweaks__head"><strong>Tweaks</strong><button class="tweaks__close" type="button" aria-label="Close">Esc</button></header>`;
   for (const control of controls) {
     const row = document.createElement('div');

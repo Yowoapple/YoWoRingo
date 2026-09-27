@@ -5,6 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createPixelHero } from '../modules/pixel-hero.js';
 import { createPlayground } from '../modules/playground.js';
 import { initGate } from '../modules/gate.js';
+import { applyInitialLang } from '../modules/lang.js';
+import { t } from '../modules/i18n.js';
 import { initTweaks } from '../modules/tweaks.js';
 import { initTabs } from '../modules/tabs.js';
 import { initStory } from '../modules/story.js';
@@ -32,6 +34,7 @@ const heroReady = createPixelHero(heroCanvas, {
   reduced
 });
 
+applyInitialLang();
 const entry = await initGate(heroReady);
 const hero = await heroReady;
 
@@ -83,7 +86,7 @@ if (tiltBtn && coarsePointer() && 'DeviceOrientationEvent' in window) {
   tiltBtn.hidden = false;
   tiltBtn.addEventListener('click', async () => {
     const ok = await playground.enableTilt();
-    tiltBtn.textContent = ok ? 'Tilt on' : 'Tilt unavailable';
+    tiltBtn.textContent = t(ok ? 'Tilt on' : 'Tilt unavailable');
     tiltBtn.disabled = true;
   });
 }

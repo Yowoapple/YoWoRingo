@@ -1,10 +1,12 @@
 import { audio } from './audio.js';
+import { t } from './i18n.js';
 
 export function initPalette(getCommands, { onOpen, onClose } = {}) {
   const root = document.createElement('div');
   root.className = 'palette';
   root.hidden = true;
   root.setAttribute('data-lenis-prevent', '');
+  root.setAttribute('data-no-i18n', '');
   root.innerHTML = `
     <div class="palette__scrim" data-close></div>
     <div class="palette__panel" role="dialog" aria-modal="true" aria-label="Command palette">
@@ -45,7 +47,7 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
         group = cmd.group;
         const h = document.createElement('li');
         h.className = 'palette__group label';
-        h.textContent = group;
+        h.textContent = t(group);
         h.setAttribute('role', 'presentation');
         list.append(h);
       }
@@ -55,14 +57,14 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
       li.setAttribute('aria-selected', String(i === active));
       li.dataset.index = i;
       li.innerHTML = `<span class="palette__title"></span><span class="palette__hint label"></span>`;
-      li.querySelector('.palette__title').textContent = cmd.title;
-      li.querySelector('.palette__hint').textContent = cmd.hint || '';
+      li.querySelector('.palette__title').textContent = t(cmd.title);
+      li.querySelector('.palette__hint').textContent = t(cmd.hint || '');
       list.append(li);
     });
     if (!items.length) {
       const li = document.createElement('li');
       li.className = 'palette__empty label';
-      li.textContent = 'No Ringo here';
+      li.textContent = t('No Ringo here');
       list.append(li);
     }
   }
@@ -92,6 +94,9 @@ export function initPalette(getCommands, { onOpen, onClose } = {}) {
     if (!root.hidden) return;
     lastFocus = document.activeElement;
     root.hidden = false;
+    root.querySelector('.palette__field .label').textContent = t('Go');
+    root.querySelector('.palette__close').textContent = t('Close');
+    input.placeholder = t('Type a command or search');
     input.value = '';
     active = touch ? -1 : 0;
     render();

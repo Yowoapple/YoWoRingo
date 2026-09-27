@@ -11,7 +11,8 @@
     "portrait": "node scripts/portrait.mjs",
     "fonts": "node scripts/fonts.mjs",
     "works": "node scripts/works.mjs",
-    "brand": "node scripts/brand.mjs"
+    "brand": "node scripts/brand.mjs",
+    "i18n": "node scripts/i18n.mjs && node scripts/fonts.mjs"
   },
   "devDependencies": {
     "fontkit": "^2.0.4",

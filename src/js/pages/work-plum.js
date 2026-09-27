@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initReveals } from '../modules/work-common.js';
 import { audio } from '../modules/audio.js';
 import { asset } from '../utils/device.js';
+import { t as tr, onLang } from '../modules/i18n.js';
 
 const COLORS = ['#f4f9ff', '#f2f2ff', '#00aaff', '#0041ff', '#fae696', '#ffe600', '#ff9900', '#ff2800', '#a50021', '#b40068'];
 const LABELS = ['0', '1', '2', '3', '4', '5−', '5+', '6−', '6+', '7'];
@@ -15,7 +16,6 @@ const VS = 3.5;
 const NS = 'http://www.w3.org/2000/svg';
 
 initReveals();
-initSite();
 
 const data = (await import('../../data/plum.json')).default;
 const stage = document.querySelector('[data-stage]');
@@ -82,10 +82,10 @@ function chartHTML(e, f) {
   const H = 9;
   const bar = (v, cls) => `<span class="p-bar ${cls}" style="--h:${v / H}"><em>${LABELS[v]}</em></span>`;
   return `
-    <div class="p-chart__head"><span class="label">Key cities</span><span class="p-chart__keys"><i class="k-obs"></i>Observed<i class="k-v1"></i>Point<i class="k-v2"></i>Direction</span></div>
+    <div class="p-chart__head"><span class="label">${tr('Key cities')}</span><span class="p-chart__keys"><i class="k-obs"></i>${tr('Observed')}<i class="k-v1"></i>${tr('Point')}<i class="k-v2"></i>${tr('Direction')}</span></div>
     <div class="p-chart__grid">${e.cities.map(c => {
       const v2 = c.v1 + Math.round((c.v2 - c.v1) * f);
-      return `<div class="p-chart__col"><div class="p-chart__bars">${bar(c.obs, 'is-obs')}${bar(c.v1, 'is-v1')}${bar(v2, 'is-v2')}</div><span class="p-chart__name">${c.name}</span></div>`;
+      return `<div class="p-chart__col"><div class="p-chart__bars">${bar(c.obs, 'is-obs')}${bar(c.v1, 'is-v1')}${bar(v2, 'is-v2')}</div><span class="p-chart__name">${tr(c.name)}</span></div>`;
     }).join('')}</div>`;
 }
 
@@ -104,10 +104,10 @@ function render() {
   timeInput.value = String(Math.round(t * 10));
   timeInput.style.setProperty('--p', `${(t / 60) * 100}%`);
   phase.textContent = t < DATA_AT
-    ? 'First warning is out. Only the point source is known.'
+    ? tr('First warning is out. Only the point source is known.')
     : f < 1
-      ? 'Station data arriving. The direction is being estimated.'
-      : `Direction locked at ${e.forwardAz}°. Intensity ahead of the rupture is raised.`;
+      ? tr('Station data arriving. The direction is being estimated.')
+      : tr('Direction locked at {deg}°. Intensity ahead of the rupture is raised.').replace('{deg}', e.forwardAz);
   phase.classList.toggle('is-locked', f === 1);
 }
 
@@ -125,19 +125,29 @@ function selectEvent(i) {
   arrow.setAttribute('y2', e.arrow[1]);
   citiesG.innerHTML = e.cities.map(c => {
     const east = c.x > VW * 0.72;
-    return `<g transform="translate(${c.x} ${c.y})"><circle r="3.5"/><text x="${east ? -8 : 8}" y="4" text-anchor="${east ? 'end' : 'start'}">${c.name}</text></g>`;
+    return `<g transform="translate(${c.x} ${c.y})"><circle r="3.5"/><text x="${east ? -8 : 8}" y="4" text-anchor="${east ? 'end' : 'start'}">${tr(c.name)}</text></g>`;
   }).join('');
   document.querySelector('[data-event-info]').innerHTML = `
     <span class="label">${e.date}</span>
-    <strong>${e.label} M${e.mag.toFixed(1)}</strong>
-    <span class="p-event__meta">First warning estimate: M${e.eewMag.toFixed(1)}, ${e.depth} km deep</span>`;
+    <strong>${tr(e.label)} M${e.mag.toFixed(1)}</strong>
+    <span class="p-event__meta">${tr('First warning estimate: M{mag}, {depth} km deep').replace('{mag}', e.eewMag.toFixed(1)).replace('{depth}', e.depth)}</span>`;
   const s1 = e.stats.v1, s2 = e.stats.v2;
-  stat.textContent = `Retrospective, ${e.cities.length} key cities. Strong-shaking misses ${s1.missed}/${s1.strong} to ${s2.missed}/${s2.strong}. Mean error ${s1.mae.toFixed(2)} to ${s2.mae.toFixed(2)} intensity levels.`;
+  stat.textContent = tr('Retrospective, {n} key cities. Strong-shaking misses {a} to {b}. Mean error {c} to {d} intensity levels.')
+    .replace('{n}', e.cities.length)
+    .replace('{a}', `${s1.missed}/${s1.strong}`)
+    .replace('{b}', `${s2.missed}/${s2.strong}`)
+    .replace('{c}', s1.mae.toFixed(2))
+    .replace('{d}', s2.mae.toFixed(2));
   render();
 }
 
 const tablist = document.querySelector('[data-events] [role="tablist"]');
+const tabLabels = () => tablist.querySelectorAll('[data-ev]').forEach(b => (b.firstChild.nodeValue = tr(data.events[Number(b.dataset.ev)].label)));
 tablist.innerHTML = data.events.map((e, i) => `<button class="tabs__tab" role="tab" type="button" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-ev="${i}">${e.label}<small>${e.date.slice(0, 4)}</small></button>`).join('');
+onLang(() => {
+  tabLabels();
+  selectEvent(ev);
+});
 tablist.addEventListener('click', e => {
   const b = e.target.closest('[data-ev]');
   if (!b) return;
@@ -223,4 +233,5 @@ document.querySelector('[data-video-cover]').addEventListener('click', e => {
 
 setSplit(0.5);
 selectEvent(0);
+initSite();
 ScrollTrigger.refresh();
