@@ -373,6 +373,64 @@
   line-height: 1.6;
 }
 
+.p-lesson {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--line);
+}
+
+.p-lesson__text {
+  display: grid;
+  gap: var(--space-2);
+  color: rgb(239 238 234 / 0.8);
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+}
+
+.p-lesson__lead {
+  font-size: var(--fs-title);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--paper);
+}
+
+.p-lesson__lead em {
+  font-style: normal;
+  color: var(--signal);
+}
+
+.p-lesson__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.p-lesson__table th,
+.p-lesson__table td {
+  padding: var(--space-2) var(--space-1) var(--space-2) 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.p-lesson__table tbody th {
+  font-weight: 600;
+}
+
+.p-lesson__table td {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: rgb(239 238 234 / 0.75);
+}
+
+.p-lesson__table td.is-yes {
+  color: var(--signal);
+}
+
 .p-video {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -409,7 +467,8 @@
 }
 
 @media (max-width: 1000px) {
-  .p-demo__body {
+  .p-demo__body,
+  .p-lesson {
     grid-template-columns: 1fr;
   }
 
