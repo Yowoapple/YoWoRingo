@@ -74,24 +74,34 @@
   88%, 92% { opacity: 0; }
 }
 
-.island__disc {
+.island__ring {
   display: none;
   flex: none;
-  width: 20px;
-  height: 20px;
-  margin-left: -4px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, #000 0 18%, transparent 19%),
-    conic-gradient(var(--signal), var(--paper) 30%, var(--signal) 55%, #1a1a1d 80%, var(--signal));
-  animation: disc 2.6s linear infinite;
+  width: 18px;
+  height: 18px;
+  margin-left: -3px;
+  rotate: -90deg;
+  fill: none;
+  stroke-width: 2.4;
 }
 
-@keyframes disc {
-  to { rotate: 360deg; }
+.island__ring-track {
+  stroke: rgb(255 255 255 / 0.16);
 }
 
-.island.is-playing .island__disc {
+.island__ring-fill {
+  stroke: var(--signal);
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.5s linear;
+}
+
+.island__ring-fill.is-reset {
+  transition: none;
+}
+
+.island.is-playing .island__ring {
   display: block;
 }
 

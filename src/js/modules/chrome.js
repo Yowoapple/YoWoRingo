@@ -24,7 +24,7 @@ const ISLAND = label => `
   <div class="island" data-island-el>
     <div class="island__view island__view--compact is-active" data-view="compact">
       <button class="island__pill" type="button" data-island-toggle aria-expanded="false" aria-label="Section and music player">
-        <span class="island__disc" aria-hidden="true"></span>
+        <svg class="island__ring" viewBox="0 0 20 20" aria-hidden="true"><circle class="island__ring-track" cx="10" cy="10" r="7.5"/><circle class="island__ring-fill" data-ring cx="10" cy="10" r="7.5" pathLength="100"/></svg>
         <span class="island__px" aria-hidden="true"></span>
         <span class="island__label" data-island-label>${label}</span>
         <span class="island__eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>

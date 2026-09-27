@@ -107,7 +107,21 @@ export function initIsland() {
     raf = music.playing && state === 'player' ? requestAnimationFrame(loop) : 0;
   }
 
+  const ring = island.querySelector('[data-ring]');
+  let ringTimer = 0;
+  let ringLast = 0;
+
+  function paintRing() {
+    const p = music.position / music.duration;
+    ring.classList.toggle('is-reset', p < ringLast);
+    ringLast = p;
+    ring.style.strokeDashoffset = String(100 - p * 100);
+  }
+
   function sync() {
+    clearInterval(ringTimer);
+    paintRing();
+    if (music.playing) ringTimer = setInterval(paintRing, 500);
     const was = island.classList.contains('is-playing');
     island.classList.toggle('is-playing', music.playing);
     playBtn.setAttribute('aria-label', music.playing ? 'Pause' : 'Play');

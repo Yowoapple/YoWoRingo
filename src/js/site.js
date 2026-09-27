@@ -49,32 +49,33 @@ function kuromi() {
 
 function restoreSession() {
   if (store.get('mode') === 'kuromi') document.documentElement.dataset.mode = 'kuromi';
-  window.addEventListener('pagehide', () => store.set('music', JSON.stringify(music.snapshot())));
-
-  if (store.get('sound') !== 'on') return;
   const saved = store.json('music');
+  const soundOn = store.get('sound') === 'on';
   let done = false;
-  const attempt = async () => {
-    if (done) return true;
-    await audio.enable();
-    if (audio.context?.state !== 'running') return false;
+  window.addEventListener('pagehide', () => {
+    const waiting = soundOn && saved?.playing && !done && !music.playing;
+    store.set('music', JSON.stringify(waiting ? saved : music.snapshot()));
+  });
+
+  if (!soundOn) return;
+  const cleanup = () => {
+    window.removeEventListener('pointerdown', attempt);
+    window.removeEventListener('keydown', attempt);
+  };
+  async function attempt() {
+    if (done) return;
+    await Promise.race([audio.enable(), new Promise(r => setTimeout(r, 300))]);
+    if (done || audio.context?.state !== 'running') return;
     done = true;
+    cleanup();
     if (saved?.playing && !music.playing) {
       music.seek(saved.pos / music.duration);
       music.play();
     }
-    return true;
-  };
-  attempt().then(ok => {
-    if (ok) return;
-    const onGesture = () => {
-      attempt();
-      window.removeEventListener('pointerdown', onGesture);
-      window.removeEventListener('keydown', onGesture);
-    };
-    window.addEventListener('pointerdown', onGesture);
-    window.addEventListener('keydown', onGesture);
-  });
+  }
+  window.addEventListener('pointerdown', attempt);
+  window.addEventListener('keydown', attempt);
+  attempt();
 }
 
 export function leave(href) {

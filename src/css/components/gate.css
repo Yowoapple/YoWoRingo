@@ -10,6 +10,10 @@
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
+.is-returning .gate {
+  display: none;
+}
+
 .gate.is-leaving {
   clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   pointer-events: none;
