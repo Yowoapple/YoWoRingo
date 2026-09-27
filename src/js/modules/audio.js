@@ -100,6 +100,26 @@ export const audio = {
     voice('sine', 1318.5, 0.08, 0.004, 0.35, t);
     voice('sine', 1975.5, 0.06, 0.004, 0.5, t + 0.07);
   },
+  shutter() {
+    if (!enabled || !sfxOn || !ctx) return;
+    const t = ctx.currentTime;
+    [0, 0.07].forEach((offset, i) => {
+      const len = 0.035;
+      const buf = ctx.createBuffer(1, Math.floor(ctx.sampleRate * len), ctx.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let k = 0; k < d.length; k++) d[k] = (Math.random() * 2 - 1) * Math.pow(1 - k / d.length, 3);
+      const src = ctx.createBufferSource();
+      src.buffer = buf;
+      const bp = ctx.createBiquadFilter();
+      bp.type = 'bandpass';
+      bp.frequency.value = i ? 2600 : 1800;
+      bp.Q.value = 1.4;
+      const g = ctx.createGain();
+      g.gain.value = i ? 0.22 : 0.3;
+      src.connect(bp).connect(g).connect(sfxBus);
+      src.start(t + offset);
+    });
+  },
   knock(intensity = 0.5) {
     if (!enabled || !sfxOn || !ctx) return;
     const now = performance.now();

@@ -4,13 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0b0c">
-  <title>Photography — YoWoRingo</title>
-  <script type="module" src="/src/js/main.js"></script>
+  <meta name="description" content="Focal Length — 54 street photographs by YoWoRingo (%VITE_LEGAL_NAME%), from 23 to 439 mm.">
+  <meta name="author" content="%VITE_LEGAL_NAME%">
+  <title>Focal Length — YoWoRingo</title>
+  <script type="module" src="/src/js/pages/photography.js"></script>
 </head>
-<body>
-  <main class="shell">
-    <p class="label">Focal Length</p>
-    <h1 class="shell__title">Photography</h1>
+<body data-page="photography" data-island="Focal Length">
+  <main id="top">
+    <section class="fl-intro" data-island="Focal Length">
+      <p class="label fl-intro__kicker">(Work 03) Photography</p>
+      <h1 class="fl-intro__title" data-split-lines><span>Focal</span><span>Length</span></h1>
+      <div class="fl-intro__foot">
+        <p class="fl-intro__lead">Scroll is the zoom ring. Start wide at 23 mm, end at 439 mm, where the whole frame spans less than six degrees of the world.</p>
+        <dl class="fl-stats" data-stats></dl>
+      </div>
+    </section>
+
+    <div class="fl-groups" data-groups></div>
+
+    <section class="fl-outro" data-island="End of Roll">
+      <p class="label">End of roll</p>
+      <p class="fl-outro__text" data-split-lines><span>Every frame here</span><span>was shot on a phone.</span><span>I learned to see in VRChat.</span></p>
+      <a class="chapter__link" href="../">Back to YoWoRingo<span aria-hidden="true"></span></a>
+    </section>
   </main>
+
+  <nav class="lens" data-lens aria-label="Jump to focal length">
+    <span class="lens__needle" data-lens-needle aria-hidden="true"></span>
+  </nav>
+  <div class="finder" data-finder aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <p class="finder-readout label" data-readout aria-hidden="true"></p>
 </body>
 </html>

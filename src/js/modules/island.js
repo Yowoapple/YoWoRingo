@@ -30,7 +30,7 @@ export function initIsland() {
     }, 180);
   }
 
-  document.querySelectorAll('[data-island]').forEach(section => {
+  document.querySelectorAll('[data-island]:not(body)').forEach(section => {
     ScrollTrigger.create({
       trigger: section,
       start: 'top 50%',
